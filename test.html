@@ -2,8 +2,29 @@
 <head>
 <title></title>
 <meta charset="utf-8">
+<SCRIPT Language="JavaScript">
+			var speed = 5000  
+			var img= new Array()
+			var url= new Array()
+			var current = 0
+			img[0] = new Image(); img[0].src = "ac01.jpg";	url[0] = "" 
+			img[1] = new Image(); img[1].src = "123.jpg";	url[1] = ""
+			img[2] = new Image(); img[2].src = "yooo.jpg";	url[2] = ""
+
+
+		function start(){
+			current++
+			if(current >=img.length) current = 0
+			document.imgs.src = img[current].src
+			setTimeout("start()",speed);
+		}
+
+		function go(){
+			window.location = url[current]
+		}
+		</SCRIPT>
 </head>
-<body>
+<body onLoad="setTimeout('start()',speed);">
 	<font face="Hanyi Senty Tang 汉仪新蒂唐朝体">
 	<div style="background-color: #ffffff;width: 1080px;margin: 0px auto;">
 	<div style="margin: 5px 10px;height: 21px;">
@@ -30,6 +51,26 @@
 </font>
 	</div>
 </div>
+
+<header id="masthead" class="site-header" role="banner">
+
+				<div class="header-wrap">
+
+			<a href="test.html" class="custom-logo-link" rel="home" itemprop="url"><img width="235" height="150" src="商標.png" class="custom-logo" alt="" itemprop="logo" ?w=150 h=80" sizes="(max-width: 235px) 100vw, 235px"></a>
+			<div class="site-branding">
+
+							<h1 class="site-title"><a href="test.html" rel="home"></a></h1>
+			
+			
+			</div><!-- .site-branding -->
+
+			
+		
+</nav><!-- #site-navigation -->
+	</header>
+
+
+
 <style type="text/css">
 #container{
     border:1px #666 dashed;
@@ -38,7 +79,7 @@
 }
 #headbox{
     width:1000px;
-    height:200px;
+    height:500px;
     border:1px #666 dashed;
     margin:0 auto;
     margin-top:5px;
@@ -68,23 +109,51 @@
     clear:both;
 }
 #footer{
-    width:1000px;
+    width:990px;
     height:60px;
     border:1px #666 dashed;
     margin-top:5px;
     margin-left:5px;
     margin-bottom:5px;
+
 }
+
+
 </style>
+
+
 <div id="container">
-    <div id="headbox"></div>
+    <div id="headbox">
+		<a href="javascript:go()"><img src="ac01.jpg" name="imgs" width="1000px" height="500px"></a>
+	</div>
+
+
+
     <div id="sidebar">
-<font face="Hanyi Senty Tang 汉仪新蒂唐朝体" size="5c"> <h2><B><p align="center">登入</p></B><h2></font>
-    <input type="button" value="一般會員" onclick="location.href='userlogin.php'" style="width:90px;height:40px;background-color:#99BBFF; font-family:'Hanyi Senty Tang 汉仪新蒂唐朝体'; font-size:18px;" >
-	<input type="button" value="商務會員" onclick="location.href='userlogin.php'" style="width:90px;height:40px;background-color:#FFFF77; font-family:'Hanyi Senty Tang 汉仪新蒂唐朝体'; font-size:18px;" ><br></div>
-    <div id="sidebody"></div>
-    <div id="clear"></div>
-    <div id="footer"></div>
+		<font face="Hanyi Senty Tang 汉仪新蒂唐朝体" size="5c"> <h2><B><p align="center">登入</p></B><h2></font>
+    	<input type="button" value="一般會員" onclick="location.href='userlogin.php'" style="width:90px;height:40px;background-color:#99BBFF; font-family:'Hanyi Senty Tang 汉仪新蒂唐朝体'; font-size:18px;" >
+		<input type="button" value="商務會員" onclick="location.href='userlogin.php'" style="width:90px;height:40px;background-color:#FFFF77; font-family:'Hanyi Senty Tang 汉仪新蒂唐朝体'; font-size:18px;" ><br>
+	</div>
+
+    <div id="sidebody">
+    	123
+    </div>
+
+    <div id="clear">
+    	456666
+    </div>
+
+    <div id="footer">
+    	789
+    </div>
+
 </div>
+
+
+
+
+<a href="#" id="toTop" style="display: inline;"><img src="upicon.png" width="7%"></a>
+
+
 </body>
 </html>
