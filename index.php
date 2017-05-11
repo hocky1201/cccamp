@@ -25,7 +25,7 @@ session_start();
                     if(isset($_SESSION['userid'])){
                         echo "<span class='hello-notify'>您好，".$_SESSION['userid']."，歡迎來到CCCamp，點此<a href='logout.php'>登出</a></span>";
                     }else{
-                        echo "<span class='hello-notify'>您好，歡迎來到CCCamp，請 <a href='login.php' data-lity >登入</a>，或是 <a href='regist.php' data-lity>註冊會員</a></span>";
+                        echo "<span class='hello-notify'>您好，歡迎來到CCCamp，請<a href='login.php' data-lity >登入</a>，或是<a href='regist.php' data-lity>註冊會員</a></span>";
                     }
                 ?>
 
@@ -58,11 +58,11 @@ session_start();
                     }else {
                         echo "訪客";//做好要刪這行
                         echo "<ul class='quick-link'>
-                                <li><a href=''>quick-navbar1</a></li>
+                                <li><a href=''>營隊一覽</a></li>
                                 <li>|</li>
-                                <li><a href=''>quick-navbar2</a></li>
+                                <li><a href=''>報名管理</a></li>
                                 <li>|</li>
-                                <li><a href=''>quick-navbar3</a></li>
+                                <li><a href=''>營隊申請</a></li>
                                 <li>|</li>
                                 <li><a href='./supplier/'>廠商專區</a></li>
                              </ul>";
@@ -100,14 +100,14 @@ session_start();
 
         <main>
             <div class="news">
-                <div class="news-title"><h6>最新公告</h6></div>
+                <div class="announceTitle"><h6>最新公告</h6></div>
             </div>
             <div class="act-news">
-                <div class="act-news-title"><h6>活動公告</h6></div>
+                <div class="announceTitle"><h6>活動公告</h6></div>
             </div>
             <div class="clear"></div>
             <div class="popular-act">
-                <div class="popular-act-title"><h6>最新營隊</h6></div>
+                <div class="announceTitle"><h6>最新營隊</h6></div>
             </div>
             
 
