@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php 
+session_start(); 
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,13 +17,15 @@
 </head>
 <body>
     <div class="wrapper">
+
         <header>
             <div class="quick-navbar">
+
                 <?php
                     if(isset($_SESSION['userid'])){
                         echo "<span class='hello-notify'>您好，".$_SESSION['userid']."，歡迎來到CCCamp，點此<a href='logout.php'>登出</a></span>";
                     }else{
-                        echo "<span class='hello-notify'>您好，歡迎來到CCCamp，請 <a href='./login.php' data-lity >登入</a>，或是 <a href='regist.php' data-lity>註冊會員</a></span>";
+                        echo "<span class='hello-notify'>您好，歡迎來到CCCamp，請 <a href='login.php' data-lity >登入</a>，或是 <a href='regist.php' data-lity>註冊會員</a></span>";
                     }
                 ?>
 
@@ -30,7 +34,7 @@
                     if(isset($_SESSION['auth'])){
                         if($_SESSION['auth'] == 1) {
                             echo "一般會員(";//做好要刪這行
-                            echo "<ul>
+                            echo "<ul class='quick-link'>
                                     <li><a href=''>quick-navbar1</a></li>
                                     <li>|</li>
                                     <li><a href=''>quick-navbar2</a></li>
@@ -41,7 +45,7 @@
                                  </ul>";
                         }elseif ($_SESSION['auth'] == 2) {
                             echo "廠商";//做好要刪這行
-                            echo "<ul>
+                            echo "<ul class='quick-link'>
                                     <li><a href=''>quick-navbar1</a></li>
                                     <li>|</li>
                                     <li><a href=''>quick-navbar2</a></li>
@@ -53,34 +57,36 @@
                         }
                     }else {
                         echo "訪客";//做好要刪這行
-                        echo "<ul>
+                        echo "<ul class='quick-link'>
                                 <li><a href=''>quick-navbar1</a></li>
                                 <li>|</li>
                                 <li><a href=''>quick-navbar2</a></li>
                                 <li>|</li>
                                 <li><a href=''>quick-navbar3</a></li>
                                 <li>|</li>
-                                <li><a href='./supplier/index.php'>廠商專區</a></li>
+                                <li><a href='./supplier/'>廠商專區</a></li>
                              </ul>";
                     }
                 ?>
+                <div class="clear"></div>
             </div>
+
             <banner>
-                <div class="jcarousel">
-                    <ul>
-                        <li><a href=""><img src="http://www.tukuwa.com/uploadfile/2013/0116/20130116010648938.jpg" alt="BannerImage"></a></li>
-                        <li><a href=""><img src="http://www.tukuwa.com/uploadfile/2013/0116/20130116010648938.jpg" alt="BannerImage"></a></li>
-                        <li><a href=""><img src="http://www.tukuwa.com/uploadfile/2013/0116/20130116010648938.jpg" alt="BannerImage"></a></li>
-                        <li><a href=""><img src="http://www.tukuwa.com/uploadfile/2013/0116/20130116010648938.jpg" alt="BannerImage"></a></li>
-                        <li><a href=""><img src="http://www.tukuwa.com/uploadfile/2013/0116/20130116010648938.jpg" alt="BannerImage"></a></li>
-                        <li><a href=""><img src="http://www.tukuwa.com/uploadfile/2013/0116/20130116010648938.jpg" alt="BannerImage"></a></li>
-                    </ul>
-                </div>
-                
-                <a class="jcarousel-prev" href="#"><</a>
-                <a class="jcarousel-next" href="#">></a>
+                    <div class="jcarousel">
+                        <ul>
+                            <li><a href=""><img src="http://clipart-library.com/images/pT5rG4Xpc.png" alt="BannerImage" ></a></li>
+                            <li><a href=""><img src="http://clipart-library.com/images/pT5rG4Xpc.png" alt="BannerImage" ></a></li>
+                            <li><a href=""><img src="http://clipart-library.com/images/pT5rG4Xpc.png" alt="BannerImage" ></a></li>
+                            <li><a href=""><img src="http://clipart-library.com/images/pT5rG4Xpc.png" alt="BannerImage" ></a></li>
+                        </ul>
+                    </div>
+                    
+                    <a class="jcarousel-prev" href="#"><</a>
+                    <a class="jcarousel-next" href="#">></a>
             </banner>
+            <div class="clear"></div>
         </header>
+
         <nav>
             <ul>
                 <li><a href="">menu1</a></li>
@@ -91,12 +97,26 @@
                 <li><a href="">menu6</a></li>
             </ul>
         </nav>
+
         <main>
+            <div class="news">
+                <div class="news-title"><h6>最新公告</h6></div>
+            </div>
+            <div class="act-news">
+                <div class="act-news-title"><h6>活動公告</h6></div>
+            </div>
+            <div class="clear"></div>
+            <div class="popular-act">
+                <div class="popular-act-title"><h6>最新營隊</h6></div>
+            </div>
             
+
         </main>
 
         <footer>
+            CCcamp 2017
         </footer>
+
     </div>
 </body>
 </html>

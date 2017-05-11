@@ -1,4 +1,5 @@
 $(function() {
+    
     $('.jcarousel').jcarousel({
         // Core configuration goes here
     });

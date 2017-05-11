@@ -55,21 +55,25 @@ table {
 .clear {
     width: 0;
     height: 0;
-    clear:both;
+    clear: both;
 }
-
-body {
+/*   整體顏色參考  http://colorhunt.co/c/70596    */
+* {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    background: seashell;
+}
+body {
+    background:#83B271;
 }
 
 .wrapper {
     margin: 0 auto;
-    width: 1280px;
+    width: 1000px;
     text-align: center;
     font-family: 微軟正黑體;
+    box-shadow: 6px 5px 20px 4px ; 
+    background: #fff;
 }
 
 h1{font-size: 3em;}
@@ -79,32 +83,47 @@ h4{font-size: 2.8em;}
 h5{font-size: 1.6em;}
 h6{font-size: 1.4em;}
 
+/*nav*/
+
+nav {
+    margin-top: 5px;
+    width: 100%;
+    height: 40px;
+    background: #D2EA9B;
+}
+    nav li{
+        width: 150px;
+        display: inline-block;
+        font-size: 1.4em;
+    }
+    nav a{
+        display: block;
+    }
+
+
 
 header {
     width: 100%;
-    height: 450px;
+    height: 400px;
 }
-    .quick-navbar {
-        height: 30px;
-        padding: 5px 20px;
-        border-bottom: 1px ridge grey;
-    }
         .hello-notify {
             float:left;
+            padding: 5px 0px;
+        }
+        .quick-navbar{
+            background: #E7F0D2;
         }
         .quick-navbar ul {
             float: right;
+            padding: 5px 0px;
         }
         .quick-navbar li {
             display: inline-block;
-            margin: 2px 5px;
         }
-
-
 
 banner {
     width: 100%;
-    height: 420px;
+    height: 300px;
 }
     .jcarousel {
         position: relative;
@@ -136,12 +155,12 @@ banner {
     }
     .jcarousel img {
         width: 1000px;
-        height: 400px;
+        height: 300px;
     }
 
     .jcarousel-prev {
         position: absolute;
-        right:1200px;
+        right:1000px;
         top: 200px;
         font-size: 3em;
         text-decoration: none;
@@ -149,54 +168,78 @@ banner {
     }
     .jcarousel-next {
         position: absolute;
-        left:1200px;
+        left:1000px;
         top: 200px;
         font-size: 3em;
         text-decoration: none;
         background: none;
     }
 
-/*通用區塊 end*/
 
 
-
-/*導航列*/
-
-nav {
-    width: 100%;
-    height: 40px;
+.news {
+    width: 48%;
+    height: 100px;
+    float: left;
+    margin: 1%;
+    border: 0.5px solid #ABCB89;
 }
-nav li{
-    width: 150px;
-    display: inline-block;
-    font-size: 1.4em;
+    .news-title {
+        width: 100%;
+        height: 30px;
+        background: #ABCB89;
+    }
+
+.act-news {
+    width: 48%;
+    height: 100px;
+    float: left;
+    margin: 1%;
+    border: 0.5px solid #ABCB89;
 }
+    .act-news-title {
+        width: 100%;
+        height: 30px;
+        background: #ABCB89;
+    }
+.popular-act {
+    width: 98%;
+    height: 300px;
+    margin: 1%;
+    border: 0.5px solid #ABCB89;
+}
+    .popular-act-title {
+        width: 100%;
+        height: 30px;
+        background: #ABCB89;
+    }
 
-/*導航列 end*/
 
 
 
 
 
-/*登入頁面   login.php*/
+
+
+
+/*login.php*/
 
 .box-login{
     margin: 0 auto;
     width: 100%;
     text-align: center;
-
 }
 
-/*登入頁面 end*/
 
 
-/*註冊頁面  regist.php*/
 
+
+
+
+/*regist.php*/
 
 .box-regist{
     margin: 0 auto;
     width: 100%;
     text-align: center;
 }
-
-/*註冊頁面 end*/
