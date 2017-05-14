@@ -2,6 +2,15 @@
 <head>
 <title></title>
 <meta charset="utf-8">
+<link href="dist/lity.css" rel="stylesheet">
+<script src="vendor/jquery.js"></script>
+<script src="dist/lity.js"></script>
+
+
+	
+
+
+
 <SCRIPT Language="JavaScript">
 			var speed = 3000  
 			var img= new Array()
@@ -22,11 +31,23 @@
 		function go(){
 			window.location = url[current]
 		}
+
+		
+
+
+
 		</SCRIPT>
 </head>
 <body onLoad="setTimeout('start()',speed);">
+	<style type="text/css">
+            body{
+            background-image: url(linen.jpg);
+            background-size: 100%;
+            }       
+
+        </style>   	
 	<font face="Hanyi Senty Tang 汉仪新蒂唐朝体">
-	<div style="background-color: #ffffff;width: 1080px;margin: 0px auto;">
+	<div style="width: 1080px;margin: 0px auto;">
 	<div style="margin: 5px 10px;height: 21px;">
 		<div style="float: left;">
 		<span style="color: black;padding-top: 2px;">您好，</span>
@@ -35,9 +56,10 @@
 		
 			
 			
-				<span style="color: black;padding-top: 2px;">歡迎來到CCCamp</span>
-				<a href="userlogin.html" onclick="showdiv(1);"><span style="color:#66CDAA;padding-top: 2px;">請登入</span></a>
-				<a href="javascript:void(0);" onclick="showdiv(2);"><span style="color:#66CDAA;padding-top: 2px;">註冊會員</span></a>
+				<span class="hello-notify">歡迎來到CCCamp</span>
+				<a href="userlogin.php" data-lity="">請登入</a>
+				<a href="javascript:void(0);" onclick="showdiv(2);"><span style="color:black;padding-top: 2px;">註冊會員</span></a>
+                                
 			
 		
 		</div>
@@ -51,21 +73,40 @@
 
 	</div>
 </div>
-
+<br>
 <header id="masthead" class="site-header" role="banner">
 
 				<div class="header-wrap">
 
-			<a href="test.html" class="custom-logo-link" rel="home" itemprop="url"><img width="235" height="110" src="商標.png" class="custom-logo" alt="" itemprop="logo" ?w=150 h=100 sizes="(max-width: 235px) 100vw, 235px"></a>
+			<a href="test.html" class="custom-logo-link" rel="home" itemprop="url"><img width="235" height="80" hspace=30 src="商標.png" class="custom-logo" alt="" itemprop="logo" ?w=150 h=100 sizes="(max-width: 235px) 100vw, 240px"></a>
 			<div class="site-branding">
 							<h1 class="site-title"><a href="test.html" rel="home"></a></h1>
 			
 			
 			</div><!-- .site-branding -->
 			
-					</header>
+</header>
 
+
+<!-- #menu/padding/整體上移/?/縮減區域/對左距離 -->
+<!---moz-border-radius顯示圓角-->
 <style type="text/css">
+
+	span{
+		border:#999  1px; 
+		padding:3px; 
+		border-radius:6px; 
+		-moz-border-radius:6px; 
+		-webkit-border-radius:6px;
+	}
+
+	div#show{ 
+		margin:10px 0 0 0; 
+		padding:5px; 
+		border:#999 dashed 1px;
+	}
+
+
 	#container{
     	border:1px #666 dashed;
     	width:1000px;
@@ -79,6 +120,7 @@
     	padding: 10px 0 40px 10px;
     	width: 1000px;
     	height: 30px;
+    	
 	}
 
 
@@ -111,6 +153,7 @@
 		margin-top: 5px;
     	margin-bottom:5px;
     	float: left;
+    	background: #FFFFE0;
 	}
 
 	#sidebody{
@@ -122,6 +165,7 @@
     	margin-top:5px;
     	margin-bottom:5px;
     	float:right;
+    	background: #FFFFFF
 	}
 
 	#clear{
@@ -139,9 +183,6 @@
 
 
 </style>
-
-
-
 
 <div id="container">
 
@@ -202,6 +243,7 @@
     </div>
 
 </div>
+
 
 
 
