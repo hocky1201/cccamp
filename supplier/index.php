@@ -5,6 +5,7 @@
     if(!isset($_SESSION['userid']))
         header ('Location: ../login.php');
 ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,9 +29,9 @@
 
         <main>
             <ul>
-                <li><a href="">營隊管理</a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
+                <li><a href="">修改個人資料</a></li>
+                <li><a href="">建立營隊</a></li>
+                <li><a href="">編輯營隊（刪除）</a></li>
                 <li><a href=""></a></li>
             </ul>
         </main>

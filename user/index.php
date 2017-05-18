@@ -28,10 +28,10 @@
 
         <main>
             <ul>
-                <li><a href="">修改會員資料</a></li>
-                <li><a href="">參與營隊查詢</a></li>
+                <li><a href="">修改個人資料</a></li>
                 <li><a href=""></a></li>
                 <li><a href=""></a></li>
+                <li><a href="">我的收藏</a></li>
             </ul>
         </main>
 
