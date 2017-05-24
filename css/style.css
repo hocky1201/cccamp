@@ -233,3 +233,9 @@ banner {
     width: 100%;
     text-align: center;
 }
+
+
+footer {
+    margin-top:10px;
+    border: 1px solid gray;
+}

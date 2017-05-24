@@ -1,0 +1,51 @@
+CREATE TABLE member (
+    member_code int not null AUTO_INCREMENT UNIQUE,
+    member_id varchar(10) not null,
+    member_pwd varchar(15) not null,
+    member_name varchar(10) not null,
+    member_admin int(1),
+    PRIMARY KEY (member_code)
+);
+
+INSERT INTO MEMBER VALUES ('','normal123','normal123','一般會員測試','');
+INSERT INTO MEMBER VALUES ('','admin123','admin123','管理者測試','1');
+INSERT INTO MEMBER VALUES ('','super123','super123','後臺使用者測試','2');
+/*CREATE Member END*/
+
+
+
+CREATE TABLE activity (
+    act_code int not null AUTO_INCREMENT UNIQUE,
+    act_name varchar(10) not null,
+    act_price int not null,
+    PRIMARY KEY (activity_code)
+);
+    
+INSERT INTO activity VALUES ('','營隊一','3000');
+INSERT INTO activity VALUES ('','營隊二','4500');
+INSERT INTO activity VALUES ('','營隊三','9000');
+/*CREATE Activity END*/
+
+CREATE TABLE comments (
+    comments_code int not null AUTO_INCREMENT UNIQUE,
+    
+    PRIMARY KEY (comments_code)
+);
+/*CREATE activity END */
+
+
+
+CREATE TABLE collection (
+    c_code int not null AUTO_INCREMENT UNIQUE,
+    PRIMARY KEY()
+);
+/*CREATE collection END */
+
+
+
+
+CREATE TABLE act_comment(
+    act_comment_id int not null AUTO_INCREMENT UNIQUE,
+    PRIMARY KEY ()
+);
+/* CREATE act_comment END*/

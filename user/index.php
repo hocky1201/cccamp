@@ -1,16 +1,17 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <?php 
-    session_start(); 
-    
-    if(!isset($_SESSION['userid']))
-        header ('Location: ../login.php');
+ //   if(!isset($_SESSION['userid']))
+ //       header ('Location: ../login.php');
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>使用者管理</title>
+    <title>使用者管理 - CCcamp</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./lity/lity.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -23,20 +24,22 @@
     <div class="wrapper">
 
         <header>
-
+            <?php
+                include '../header.php';
+            ?>
         </header>
 
         <main>
             <ul>
-                <li><a href="">修改個人資料</a></li>
-                <li><a href=""></a></li>
+                <li><a href="">會員資料</a></li>
+                <li><a href="">營隊收藏</a></li>
                 <li><a href=""></a></li>
                 <li><a href="">我的收藏</a></li>
             </ul>
         </main>
 
         <footer>
-            CCcamp 2017
+            <?php include '../footer.php'; ?>
         </footer>
 
     </div>

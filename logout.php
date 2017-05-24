@@ -1,6 +1,7 @@
 <?php
     session_start();
     session_destroy();
-    header('url = index.php');
+    mysqli_close($link);
+    header('Location: index.php');
     exit();
 ?>

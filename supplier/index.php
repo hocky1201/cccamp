@@ -1,11 +1,9 @@
+<?php session_start();  ?>
 <!DOCTYPE html>
 <?php 
-    session_start(); 
-    
     if(!isset($_SESSION['userid']))
         header ('Location: ../login.php');
 ?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +22,7 @@
     <div class="wrapper">
 
         <header>
-
+            <?php include '../header.php';?>
         </header>
 
         <main>
@@ -37,7 +35,7 @@
         </main>
 
         <footer>
-            CCcamp 2017
+            <?php include '../footer.php'; ?>
         </footer>
         
     </div>
