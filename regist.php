@@ -1,44 +1,50 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>註冊會員  - CCcamp</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
 </head>
 <body>
-    <?php if(isset($_SESSION['user']))
-        header ('Location: index.php');
-    ?>
-    <div class="box-regist">
-        <?php
-        if(!isset($_POST['userid'])){ ?>
-        <h4>註冊會員</h4>
-        <form action="regist.php" method="post">
-            <lable>帳號：</lable><input type="text" name="id" placeholder="請輸入帳號" required><br>
-            <lable>密碼：</lable><input type="password" name="pwd" placeholder="請輸入密碼" required><br>
-            <lable>姓名：</lable><input type="text" name="name" placeholder="請輸入姓名" required><br>
-            <input type="submit" value="確定註冊"><br>
-        </form>
+    <?php include "header.php"; ?>
 
-        <?php
+    <?php
+    if(isset($_POST['submit'])) {
+        $userid = $_POST['userid'];
+        $userpwd = $_POST['userpwd'];
+        $username = $_POST['username'];
+
+        include "dbconnect.php";
+        $getUserId = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$userid'");
+        $id = mysqli_fetch_assoc($getUserId);
+
+        if($id){
+            echo "帳號<em>". $userid ."</em>已被使用，請選擇其他帳號";
         }else{
-            $id = $_POST['id'];
-            $pwd = $_POST['pwd'];
-            $name = $_POST['name'];
+            $query = mysqli_query($link, "INSERT INTO `user` (`u_id`, `u_pwd` , `u_name`, `u_auth`) VALUES ('$userid','$userpwd','$username','user'); ");
 
-            include 'dbconnect.php';
+            if(isset($query)){
+                echo "用戶：<b>".$userid."</b>註冊成功，請牢記您的密碼<br />";
+                echo "2秒後將跳轉至首頁，或<a href='./login.php'>立即登入</a>";
+                header("Refresh:2; url=index.php");
+            }else{
+                echo "There is an Error while Saving: ";
+                echo "<br />Please click on Create User from menu, and try again<br /><br />";
+            }
 
-            $regist = "INSERT INTO member SET member_id = $id, member_pwd = $pwd, member_name = $name;";
-            mysqli_query($link,$regist);
-            
-            echo "已完成註冊，請回到<a href='index.php'>首頁</a>進行登入!";
-            
         }
-
-        ?>
-    </div>
+        exit;
+    }else {
+    ?>
+    <form action="regist.php" method="post">
+        <h4>會員註冊</h4>
+        <lable>帳號</lable><input type="text" name="userid" placeholder="請輸入帳號" required><br>
+        <lable>姓名</lable><input type="text" name="username" placeholder="請輸入姓名" required><br>
+        <lable>密碼</lable><input type="password" name="userpwd" placeholder="請輸入密碼" required><br>
+        <input type="submit" name="submit" value="立即註冊"><br>
+    </form>
+    <span>已經是會員了嗎？立即<a href="./login.php">登入</a></span><br>
+    <?php } ?>
 </body>
 </html>

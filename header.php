@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="quickbar">
@@ -33,8 +33,8 @@
         if(!isset($_SESSION['auth'])) {
             echo "<ul>
                 <li><a href='allcamp.php'>營隊一覽</a></li><li>|</li>
-                <li><a href='user.php'>會員專區</a></li><li>|</li>
-                <li><a href='sup.php'>廠商專區</a></li>
+                <li><a href='user/index.php'>會員專區</a></li><li>|</li>
+                <li><a href='supplier/index.php'>廠商專區</a></li>
                 </ul>";
         }elseif ($_SESSION['auth'] == 'user') {
             echo "<ul>

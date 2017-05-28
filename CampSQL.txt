@@ -1,51 +1,61 @@
-CREATE TABLE member (
-    member_code int not null AUTO_INCREMENT UNIQUE,
-    member_id varchar(10) not null,
-    member_pwd varchar(15) not null,
-    member_name varchar(10) not null,
-    member_admin int(1),
-    PRIMARY KEY (member_code)
+CREATE TABLE `user` (
+    u_code int not null AUTO_INCREMENT UNIQUE,
+    u_id varchar(10) NOT null,
+    u_pwd varchar(15) NOT null,
+ /* u_photo, */
+    u_name varchar(10) NOT null,
+    u_phone int(10) NOT NULL,
+    u_email varchar NOT NULL,
+    u_auth ENUM('user','admin'),
+    PRIMARY KEY (u_code)
 );
 
-INSERT INTO MEMBER VALUES ('','normal123','normal123','一般會員測試','');
-INSERT INTO MEMBER VALUES ('','admin123','admin123','管理者測試','1');
-INSERT INTO MEMBER VALUES ('','super123','super123','後臺使用者測試','2');
-/*CREATE Member END*/
+INSERT INTO `user`(u_code, u_id, u_pwd, u_name, u_auth) VALUES ('1', 'user', 'user', '一般會員測試', 'user');
+INSERT INTO `user`(u_code, u_id, u_pwd, u_name, u_auth) VALUES ('2', 'admin',' admin', '廠商測試', 'admin');
 
+/*CREATE user END*/
 
-
-CREATE TABLE activity (
-    act_code int not null AUTO_INCREMENT UNIQUE,
-    act_name varchar(10) not null,
-    act_price int not null,
-    PRIMARY KEY (activity_code)
+CREATE TABLE `activity` (
+    act_code int not null AUTO_INCREMENT,
+    act_name varchar(20) not null,
+    act_desc varchar(300) not null,
+    act_price int(5) not null,
+    act_area ENUM('臺北市', '新北市', '桃園市' ,'臺中市', '臺南市', '高雄市', '基隆市', '桃園縣', '新竹市', '新竹縣', '苗栗縣', '彰化市', '彰化縣', '南投縣', '雲林縣', '嘉義市', '嘉義縣', '屏東市', '屏東縣', '台東縣', '花蓮市', '花蓮縣', '宜蘭縣', '澎湖縣' ,'金門縣', '連江縣', '香港', '海外', '其他') NOT NULL,
+    act_stage ENUM('幼稚園', '國小', '國中', '高中', '高職', '大專院校', '研究所,', '社會人士' ),
+    act_field ENUM('法政', '財經', '外語', '數理化', '地球', '與環境', '資訊', '生物資源', '建築', '設計', '藝術', '社會', '心理', '大眾傳播', '文史哲', '教育', '管理', '遊憩', '運動', '工程', '機器人, '生命', '科學', '醫藥', '衛生', '其他') NOT NULL,
+    act_url varchar NOT NULL,
+	act_signup_starttime
+    act_signup_endtime
+    act_starttime
+    act_endtime
+    act_contact_person varchar NOT NULL,
+    act_contact_phone int NOT NULL,
+    u_code int NOT null,
+    PRIMARY KEY (act_code),
+    FOREIGN KEY (u_code) REFERENCES `user`(u_code)
 );
     
-INSERT INTO activity VALUES ('','營隊一','3000');
-INSERT INTO activity VALUES ('','營隊二','4500');
-INSERT INTO activity VALUES ('','營隊三','9000');
+INSERT INTO `activity` VALUES ('1', N'REFUN暑假數感程式營', N'數學是孩子從小到大花最多時間學習的學科之一，卻也是最多孩子無法理解目的的科目。
+《數感傳奇三部曲》是由「美國玩具奧斯卡獎」得獎團隊「綿羊犬」與致力於數學科普教育的「數感實驗室」賴以威老師合作開發。遊戲中，我們以「數感」取代公式與計算，將抽象、生硬的數學題材，結合孩子感興趣的「奇幻故事」與「角色扮演」，詮釋學習數學不一樣的可能性。', '5000', '臺北市', '幼稚園','1');
+
 /*CREATE Activity END*/
 
-CREATE TABLE comments (
-    comments_code int not null AUTO_INCREMENT UNIQUE,
-    
-    PRIMARY KEY (comments_code)
+CREATE TABLE `actcomment` (
+	comm_code int NOT NULL AUTO_INCREMENT,
+    u_code int NOT NULL,
+    act_code int NOT NULL,
+	content varchar NOT NULL,
+    PRIMARY KEY (c_code, u_code, act_code)
 );
-/*CREATE activity END */
 
-
-
-CREATE TABLE collection (
-    c_code int not null AUTO_INCREMENT UNIQUE,
-    PRIMARY KEY()
+/*CREATE comment END*/
+                   
+CREAE TABLE `collection` (
+    coll_code int NOT NULL AUTO_INCREMENT,
+    u_code int NOT NULL,
+    act_code int NOT NULL,
+    PRIMARY kEY (coll_code, u_code, act_code)
 );
-/*CREATE collection END */
-
-
-
-
-CREATE TABLE act_comment(
-    act_comment_id int not null AUTO_INCREMENT UNIQUE,
-    PRIMARY KEY ()
-);
-/* CREATE act_comment END*/
+                   
+                   
+/*CREATE collection END*/

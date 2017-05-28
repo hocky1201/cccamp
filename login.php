@@ -1,7 +1,10 @@
-<? session_start(); ?>
+
 <?php
 if(isset($_SESSION['user'])){
-    header ('Location:index.php');
+    echo "您已登入為:<br />";
+    foreach ($_SESSION as $key => $value)
+        echo $key." : ".$value."<br />";
+    echo "<a href='logout.php'>點此登出</a>";
     exit();
 }
 ?>
@@ -11,47 +14,47 @@ if(isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>會員登錄 - CCcamp</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
 </head>
 <body>
-    <?php if(!isset($_POST['userid'])){ ?>
-    <div class="box-login">
-                <form action="login.php" method="post">
-                    <h4>會員登入</h4>
-                    <lable>帳號：</lable><input type="text" name="userid" placeholder="請輸入帳號" required><br>
-                    <lable>密碼：</lable><input type="password" name="userpassword" placeholder="請輸入密碼" required><br>
-                    <input type="submit" value="登入">
-                </form>
-                <span>還不是會員嗎？立即<a href="./regist.php">註冊</a></span><br>
-                <span><a href="">忘記密碼</a><a href="">忘記帳號</a></span>
-    </div>
-    <?php }else {
+    <?php include "header.php"; ?>
 
-        include 'dbconnect.php';
-        $user = $_POST['userid'];
-        $pwd = $_POST['userpassword'];
+    <?php
 
-        $login = "SELECT * FROM member WHERE member_id = '$user' AND member_pwd = '$pwd';";
+    if(isset($_POST['submit'])) {
+        $id = $_POST['userid']; 
+        $pwd = $_POST['userpwd'];
 
-        $result = mysqli_query($link,$login);
-        $row = mysqli_fetch_assoc($result);
+        include "dbconnect.php";
+        $login = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$id' AND `u_pwd` = '$pwd'; ");
+        $row = mysqli_fetch_assoc($login);
 
-        if(isset($row)){
-            $_SESSION['user'] = $row['mebmer_id']; 
-            $_SESSION['auth'] = $row['member_admin'];
-            if($_SESSION['auth'] == 1){
-                header ('Location:./user/<index class="php"></index>');
-            }elseif ($_SESSION['auth'] == 2) {
-                header ('Location:superuser.php');
-            }else {
-                header ('Location:index.php');
+        if(isset($row)) {
+            $_SESSION['user'] = $row['u_id'];
+			$_SESSION['auth'] = $row['u_auth'];
+
+            if( $_SESSION['auth'] == 'admin'){
+                header("Refresh:1; url=index.php");
+            }else{
+                echo "成功登入為".$_SESSION['user'];
+                header("Refresh:1; url=index.php");
             }
+
         }else {
             $_POST = array();
-            header ('Location:index.php');
+            echo "帳號或密碼錯誤，<a href='login.php'>在試一次</a>";
         }
-    }
+
+    }else {
     ?>
+    <form action="login.php" method="post">
+        <h4>會員登入</h4>
+        <lable>帳號</lable><input type="text" name="userid" placeholder="請輸入帳號" required><br>
+        <lable>密碼</lable><input type="password" name="userpwd" placeholder="請輸入密碼" required><br>
+        <input type="submit" name="submit" value="登入"><br>
+    </form>
+    <span>還不是會員嗎？立即<a href="./regist.php">註冊</a></span><br>
+    <span><a href="">忘記密碼</a><a href="">忘記帳號</a></span>
+    <?php } ?>
 </body>
 </html>
