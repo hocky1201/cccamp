@@ -9,21 +9,21 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="quickbar">
+    <header>
 
         <div class="quicklogin">
         <?php
         if(isset($_SESSION['user'])) {
             echo "<b>".$_SESSION['user']."</b> 你好，點此<a href='logout.php'>登出</a>";
         }else {
-            echo "歡迎來到CCCamp，請<a href='login.php'>登入</a>，或是<a href='regist.php'>註冊會員</a></span>";
+            echo "歡迎來到<a href='index.php'>CCCamp</a>，請<a href='login.php'>登入</a>，或是<a href='regist.php'>註冊會員</a></span>";
         }
         ?>
         </div>
 
         <div class="searchbar">
             <form action="search.php" method="get">
-                <input type="text" name="srch" placeholder="搜尋營隊">
+                <input type="search" name="srch" placeholder="搜尋營隊">
                 <input type="submit" value="立即搜尋">
             </form>
         </div>
@@ -32,9 +32,9 @@
         <?php
         if(!isset($_SESSION['auth'])) {
             echo "<ul>
-                <li><a href='allcamp.php'>營隊一覽</a></li><li>|</li>
-                <li><a href='user/index.php'>會員專區</a></li><li>|</li>
-                <li><a href='supplier/index.php'>廠商專區</a></li>
+                <li><a href='./allcamp.php'>營隊一覽</a></li><li>|</li>
+                <li><a href=''>會員專區</a></li><li>|</li>
+                <li><a href=''>廠商專區</a></li>
                 </ul>";
         }elseif ($_SESSION['auth'] == 'user') {
             echo "<ul>
@@ -46,13 +46,13 @@
             echo "<ul>
                 <li><a href=''>修改個人資料</a></li><li>|</li>
                 <li><a href=''>刊登營隊</a></li><li>|</li>
-                <li><a href=''>編輯營隊</a></li><li>|</li>
+                <li><a href=''>編輯營隊</a></li>
                 </ul>";
         }
         ?>
         </div>
 
-    </div>
+    </header>
     
 </body>
 </html>

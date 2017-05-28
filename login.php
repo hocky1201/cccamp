@@ -1,4 +1,3 @@
-
 <?php
 if(isset($_SESSION['user'])){
     echo "您已登入為:<br />";
@@ -14,47 +13,56 @@ if(isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>會員登入 - CCcamp</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <?php include "header.php"; ?>
+    <div class="wrapper">
 
-    <?php
+        <?php include "header.php"; ?>
 
-    if(isset($_POST['submit'])) {
-        $id = $_POST['userid']; 
-        $pwd = $_POST['userpwd'];
+        <?php
 
-        include "dbconnect.php";
-        $login = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$id' AND `u_pwd` = '$pwd'; ");
-        $row = mysqli_fetch_assoc($login);
+        if(isset($_POST['submit'])) {
+            $id = $_POST['userid']; 
+            $pwd = $_POST['userpwd'];
 
-        if(isset($row)) {
-            $_SESSION['user'] = $row['u_id'];
-			$_SESSION['auth'] = $row['u_auth'];
+            include "dbconnect.php";
+            $login = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$id' AND `u_pwd` = '$pwd'; ");
+            $row = mysqli_fetch_assoc($login);
 
-            if( $_SESSION['auth'] == 'admin'){
-                header("Refresh:1; url=index.php");
-            }else{
-                echo "成功登入為".$_SESSION['user'];
-                header("Refresh:1; url=index.php");
+            if(isset($row)) {
+                $_SESSION['user'] = $row['u_id'];
+                $_SESSION['auth'] = $row['u_auth'];
+
+                if( $_SESSION['auth'] == 'admin'){
+                    header("Refresh:1; url=index.php");
+                }else{
+                    echo "成功登入為".$_SESSION['user'];
+                    header("Refresh:1; url=index.php");
+                }
+
+            }else {
+                $_POST = array();
+                echo "帳號或密碼錯誤，<a href='login.php'>再試一次</a>";
             }
 
         }else {
-            $_POST = array();
-            echo "帳號或密碼錯誤，<a href='login.php'>在試一次</a>";
-        }
+        ?>
+        <form action="login.php" method="post">
+            <h2>會員登入</h2>
+            <lable>帳號 </lable><input type="text" name="userid" placeholder="請輸入帳號" required><br>
+            <lable>密碼 </lable><input type="password" name="userpwd" placeholder="請輸入密碼" required><br>
+            <input type="submit" name="submit" value="登入"><br>
+        </form>
+        <span>還不是會員嗎？立即<a href="./regist.php">註冊</a></span><br>
+        <span><a href="">忘記密碼</a>?</span><br>
+        <?php } ?>
 
-    }else {
-    ?>
-    <form action="login.php" method="post">
-        <h4>會員登入</h4>
-        <lable>帳號</lable><input type="text" name="userid" placeholder="請輸入帳號" required><br>
-        <lable>密碼</lable><input type="password" name="userpwd" placeholder="請輸入密碼" required><br>
-        <input type="submit" name="submit" value="登入"><br>
-    </form>
-    <span>還不是會員嗎？立即<a href="./regist.php">註冊</a></span><br>
-    <span><a href="">忘記密碼</a><a href="">忘記帳號</a></span>
-    <?php } ?>
+
+        <?php include 'footer.php'; ?>
+
+    </div>
+
 </body>
 </html>

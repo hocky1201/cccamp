@@ -1,241 +1,59 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/*css reset end*/
-
-
- /*通用區塊*/
-
 .clear {
-    width: 0;
-    height: 0;
-    clear: both;
+	clear: both;
 }
-/*   整體顏色參考  http://colorhunt.co/c/70596    */
-* {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-body {
-    background:#83B271;
-}
-
-.wrapper {
-    margin: 0 auto;
-    width: 1000px;
+.wrapper  {
+	margin: 0 auto;
+    width: 1200px;
     text-align: center;
+	text-decoration: none;
+	color:#111;
     font-family: 微軟正黑體;
     box-shadow: 6px 5px 20px 4px ; 
     background: #fff;
 }
 
-h1{font-size: 3em;}
-h2{font-size: 2.6em;}
-h3{font-size: 2.2em;}
-h4{font-size: 2.8em;}
-h5{font-size: 1.6em;}
-h6{font-size: 1.4em;}
-
-/*nav*/
-
-nav {
-    margin-top: 5px;
-    width: 100%;
-    height: 40px;
-    background: #D2EA9B;
-}
-    nav li{
-        width: 150px;
-        display: inline-block;
-        font-size: 1.4em;
-    }
-    nav a{
-        display: block;
-    }
-
-
-
 header {
-    width: 100%;
-    height: 400px;
+	background: #ccc;
 }
-        .hello-notify {
-            float:left;
-            padding: 5px 0px;
-        }
-        .quick-navbar{
-            background: #E7F0D2;
-            height: auto;
-            padding: 5px;
-        }
-        .quick-navbar ul {
-            float: right;
-            padding: 5px 0px;
-        }
-        .quick-navbar li {
-            display: inline-block;
-        }
-
-banner {
-    width: 100%;
-    height: auto;
-}
-    .jcarousel {
-        position: relative;
-        overflow: hidden;
-    }
-
-    /*
-    This is the container of the carousel items.
-    You must ensure that the position is relative or absolute and
-    that the width is big enough to contain all items.
-    */
-    .jcarousel ul {
-        width: 20000em;
-        position: relative;
-
-        /* Optional, required in this case since it's a <ul> element */
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    /*
-    These are the item elements. jCarousel works best, if the items
-    have a fixed width and height (but it's not required).
-    */
-    .jcarousel li {
-        /* Required only for block elements like <li>'s */
-        float: left;
-    }
-    .jcarousel img {
-        width: 1000px;
-        height: 300px;
-    }
-
-    .jcarousel-prev {
-        position: absolute;
-        right:1000px;
-        top: 200px;
-        font-size: 3em;
-        text-decoration: none;
-        background: none;
-    }
-    .jcarousel-next {
-        position: absolute;
-        left:1000px;
-        top: 200px;
-        font-size: 3em;
-        text-decoration: none;
-        background: none;
-    }
-
-/*公告*/
-
-.news {
-    width: 48%;
-    height: 100px;
-    float: left;
-    margin: 1%;
-    border: 0.5px solid #ABCB89;
-}
-.act-news {
-    width: 48%;
-    height: 100px;
-    float: left;
-    margin: 1%;
-    border: 0.5px solid #ABCB89;
-}
-.popular-act {
-    width: 98%;
-    height: 300px;
-    margin: 1%;
-    border: 0.5px solid #ABCB89;
-}
-.announceTitle {
-        width: 100%;
-        height: auto;
-        padding: 5px 0;
-        background: #ABCB89;
-}
-
-
-
-
-
-
-
-/*login.php*/
-
-.box-login{
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-}
-
-
-
-
-
-
-
-/*regist.php*/
-
-.box-regist{
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-}
-
-
 footer {
-    margin-top:10px;
-    border: 1px solid gray;
+	background: #ccc;
+}
+
+.quicklogin {
+	width: 30%;
+}
+.searchbar {
+	width: 30%;
+}
+.quicknav {
+	width: 30%;
+}
+.quicklogin, .searchbar, .quicknav {
+	display: inline-block;
+}
+.quicknav ul li {
+	display: inline-block;
+}
+
+.actWrapper {
+	margin: 0 auto;
+	width: 85%;
+	min-height:200px;
+	border:0.25px dashed black;
+}
+.actPic {
+	width: 30%;
+	float: left;
+	min-height:200px;
+	border: 0.25px solid red;
+}
+.actInfo {
+	width: 30%;
+	min-height:200px;
+	float: left;
+}
+.actLink {
+	width: 30%;
+	min-height:200px;
+	float: left;
 }
