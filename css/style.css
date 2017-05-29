@@ -1,0 +1,59 @@
+.clear {
+	clear: both;
+}
+.wrapper  {
+	margin: 0 auto;
+    width: 1200px;
+    text-align: center;
+	text-decoration: none;
+	color:#111;
+    font-family: 微軟正黑體;
+    box-shadow: 6px 5px 20px 4px ; 
+    background: #fff;
+}
+
+header {
+	background: #ccc;
+}
+footer {
+	background: #ccc;
+}
+
+.quicklogin {
+	width: 30%;
+}
+.searchbar {
+	width: 30%;
+}
+.quicknav {
+	width: 30%;
+}
+.quicklogin, .searchbar, .quicknav {
+	display: inline-block;
+}
+.quicknav ul li {
+	display: inline-block;
+}
+
+.actWrapper {
+	margin: 0 auto;
+	width: 85%;
+	min-height:200px;
+	border:0.25px dashed black;
+}
+.actPic {
+	width: 30%;
+	float: left;
+	min-height:200px;
+	border: 0.25px solid red;
+}
+.actInfo {
+	width: 30%;
+	min-height:200px;
+	float: left;
+}
+.actLink {
+	width: 30%;
+	min-height:200px;
+	float: left;
+}
