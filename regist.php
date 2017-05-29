@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="wrapper">
+
         <?php include "header.php"; ?>
 
         <?php
@@ -29,8 +30,8 @@
                 $query = mysqli_query($link, "INSERT INTO `user` (`u_id`, `u_pwd`, `u_name`, `u_phone`, `u_email`, `u_auth`) VALUES ('$userid', '$userpwd', '$username', '$usertel', '$usermail', '$userauth')");
                 if(isset($query)){
                     echo "用戶：<b>".$userid."</b>註冊成功，請牢記您的密碼<br />";
-                    echo "2秒後將跳轉至首頁，或<a href='./login.php'>立即登入</a>";
-                    header("Refresh:2; url=index.php");
+                    echo "3秒後將跳轉至首頁，或<a href='/cccamp/login.php'>立即登入</a>";
+                    header("Refresh:3; url=/cccamp/index.php");
                 }else{
                     echo "There is an Error while Saving: ";
                     echo "<br />Please click on Create User from menu, and try again<br /><br />";
@@ -50,7 +51,7 @@
                                 <input type="radio" name="userauth" value="admin">廠商<br>
             <input type="reset" value="重填"><input type="submit" name="submit" value="立即註冊"><br>
         </form>
-        <span>已經是會員了嗎？立即<a href="./login.php">登入</a></span><br>
+        <span>已經是會員了嗎？立即<a href="/cccamp/login.php">登入</a></span><br>
         <?php } ?>
 
         <?php include 'footer.php'; ?>

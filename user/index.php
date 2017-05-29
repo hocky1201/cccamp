@@ -1,6 +1,4 @@
-<?php 
-session_start();
-?>
+
 <!DOCTYPE html>
 <?php 
  //   if(!isset($_SESSION['userid']))
@@ -12,7 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>使用者管理 - CCcamp</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="./lity/lity.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.5/jquery.jcarousel.js"></script>
@@ -20,27 +18,19 @@ session_start();
     <script src="./js/all.js"></script>
 </head>
 <body>
-
     <div class="wrapper">
+        
+        <?php include '../header.php'; ?>
 
-        <header>
-            <?php
-                include '../header.php';
-            ?>
-        </header>
-
-        <main>
+        <div class="quicknav">
             <ul>
-                <li><a href="">會員資料</a></li>
-                <li><a href="">營隊收藏</a></li>
-                <li><a href=""></a></li>
+                <li><a href="">會員資料修改</a></li><li> | </li>
+                <li><a href="">營隊收藏</a></li><li> | </li>
                 <li><a href="">我的收藏</a></li>
             </ul>
-        </main>
+        </div>
 
-        <footer>
             <?php include '../footer.php'; ?>
-        </footer>
 
     </div>
     
