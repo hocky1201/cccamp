@@ -18,12 +18,13 @@ if(!isset($_SESSION['user'])){
         <?php include "header.php"; ?>
 
     <?php
-    if($_SESSION['auth'] == 'user') {
+    if($_SESSION['auth'] == 'admin') {
             echo "<ul>
-                <li><a href=''>會員資料修改</a></li><li>|</li>
-                <li><a href=''>營隊收藏</a></li><li>|</li>
-                <li><a href=''>我的營隊收藏</a></li>
+                <li><a href=''>修改個人資料</a></li><li>|</li>
+                <li><a href=''>刊登營隊</a></li><li>|</li>
+                <li><a href=''>編輯營隊</a></li><li>|</li>
                 </ul>";
-                }?>
+        }
+        ?>
 </body>
 </html>
