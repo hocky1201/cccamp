@@ -6,53 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/cccamp/css/style.css">
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <div class="container">
+        <nav class="navbar nav-default">
 
-        <div class="quicklogin">
-        <?php
-        if(isset($_SESSION['user'])) {
-            echo "<b>".$_SESSION['user']."</b> 你好，點此<a href='/cccamp/logout.php'>登出</a>";
-        }else {
-            echo "歡迎來到<a href='/cccamp/index.php'>CCCamp</a>，請<a href='/cccamp/login.php'>登入</a>，或是<a href='/cccamp/regist.php'>註冊會員</a></span>";
-        }
-        ?>
-        </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.php">CCcamp</a>
+            </div>
 
-        <div class="searchbar">
-            <form action="/cccamp/search.php" method="get">
-                <input type="search" name="srch" placeholder="搜尋營隊">
-                <input type="submit" value="立即搜尋">
+            <div class="nav navbar-nav navbar-left">
+                <?php
+                    if(isset($_SESSION['user'])) {
+                        echo "<p class='navbar-text'>Signed in as <b>".$_SESSION['user']."</b></p>";
+                        echo "<button type='button' class='btn btn-default navbar-btn'>登出</button>";
+
+                    }else {
+                        echo "<button type='button' class='btn btn-default navbar-btn'>登入</button>";
+                        echo "<button type='button' class='btn btn-default navbar-btn'>註冊會員</button>";
+                    }
+                ?>
+            </div> 
+
+            <form class="navbar-form navbar-left" action="search.php" method="get">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="srch" placeholder="找找自己感興趣的營隊?">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>搜尋</button>
             </form>
-        </div>
 
-        <div class="quicknav">
-        <?php
-        if(!isset($_SESSION['auth'])) {
-            echo "<ul>
-                <li><a href='/cccamp/allcamp.php'>營隊一覽</a></li><li>|</li>
-                <li><a href='/cccamp/user/index.php'>會員專區</a></li><li>|</li>
-                <li><a href='/cccamp/supplier/index.php'>廠商專區</a></li>
-                </ul>";
-        }elseif ($_SESSION['auth'] == 'user') {
-            echo "<ul>
-                <li><a href=''>會員資料修改</a></li><li>|</li>
-                <li><a href=''>營隊收藏</a></li><li>|</li>
-                <li><a href=''>我的最愛</a></li>
-                </ul>";
-        }elseif ($_SESSION['auth'] == 'admin') {
-            echo "<ul>
-                <li><a href=''>修改個人資料</a></li><li>|</li>
-                <li><a href='/cccamp/supplier/newcamp.php'>刊登營隊</a></li><li>|</li>
-                <li><a href=''>編輯營隊</a></li>
-                </ul>";
-        }
-        ?>
-        </div>
+            <ul class="nav navbar-nav navbar-right">
+                <?php
+                if(!isset($_SESSION['auth'])) {
+                    echo 
+                        "<li><a href='allcamp.php'>營隊一覽</a></li>
+                        <li><a href='user.php'>會員專區</a></li>
+                        <li><a href='supplier.php'>廠商專區</a></li>";
+                }elseif ($_SESSION['auth'] == 'user') {
+                    echo 
+                        "<li><a href=''>會員資料修改</a></li>
+                        <li><a href=''>營隊收藏</a></li>
+                        <li><a href=''>我的最愛</a></li>";
+                }elseif ($_SESSION['auth'] == 'admin') {
+                    echo 
+                        "<li><a href=''>修改個人資料</a></li>
+                        <li><a href='newcamp.php'>刊登營隊</a></li>
+                        <li><a href=''>編輯營隊</a></li>";
+                }
+                ?>
+            </ul>
 
-    </header>
-    
+        </nav>
+    </div>
 </body>
 </html>

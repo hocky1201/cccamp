@@ -1,11 +1,15 @@
+
 <!DOCTYPE html>
+<?php 
+ //   if(!isset($_SESSION['userid']))
+ //       header ('Location: ../login.php');
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <!-- Latest compiled and minified CSS -->
+    <title>使用者管理 - CCcamp</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -16,10 +20,21 @@
 
 </head>
 <body>
-    <div class="containe text-center">
-        <div class="footer footer-static">
-            <span>CCcamp &copy 2017</span>
+    <div class="container">
+        
+        <?php include 'header.php'; ?>
+
+        <div class="quicknav">
+            <ul>
+                <li><a href="">會員資料修改</a></li><li> | </li>
+                <li><a href="">營隊收藏</a></li><li> | </li>
+                <li><a href="">我的收藏</a></li>
+            </ul>
         </div>
+
+            <?php include 'footer.php'; ?>
+
     </div>
+    
 </body>
 </html>

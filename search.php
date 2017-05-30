@@ -22,7 +22,7 @@
         if(isset($row['act_name'])) {
             while($row=mysqli_fetch_assoc($result)){
 
-            echo "<div class='actWrapper'>";
+            echo "<div class='container text-center'>";
             if($row['act_poster'] == NULL){
                 echo    "<div class='actPic'>";
                 echo    "<img src='./img/default_poster.jpg'>";
@@ -56,7 +56,7 @@
             mysqli_close($link);
 
         }else {
-            echo "<div class='actWrapper'>";
+            echo "<div class='container text-center'>";
             echo "找不到有關 ".$srch." 的營隊";
             echo "</div>";
         }

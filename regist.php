@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>會員註冊 - CCcamp</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <div class="wrapper">
+    <div class="container">
 
         <?php include "header.php"; ?>
 
@@ -40,18 +47,34 @@
             exit;
         }else {
         ?>
-        <form action="regist.php" method="post">
-            <h2>會員註冊</h2>
-            <lable>帳號 </lable><input type="text" name="userid" placeholder="請輸入帳號" required><br>
-            <lable>姓名 </lable><input type="text" name="username" placeholder="請輸入姓名" required><br>
-            <lable>密碼 </lable><input type="password" name="userpwd" placeholder="請輸入密碼" required><br>
-            <lable>電話 </lable><input type="tel" name="usertel" placeholder="請輸入電話" required><br>
-            <lable>信箱 </lable><input type="email" name="usermail" placeholder="請輸入信箱" required><br>
-            <lable>身分 </lable><input type="radio" name="userauth" value="user">一般會員
-                                <input type="radio" name="userauth" value="admin">廠商<br>
-            <input type="reset" value="重填"><input type="submit" name="submit" value="立即註冊"><br>
-        </form>
-        <span>已經是會員了嗎？立即<a href="/cccamp/login.php">登入</a></span><br>
+
+
+
+
+        <div class="panel panel-default text-center">
+            <div class="panel-heading">
+                <h2 class="panel-title">會員註冊</h2>
+            </div>
+            <div class="panel-body">
+                <form action="regist.php" method="post">
+                    <lable>帳號 </lable><input type="text" name="userid" placeholder="請輸入帳號" required><br>
+                    <lable>姓名 </lable><input type="text" name="username" placeholder="請輸入姓名" required><br>
+                    <lable>密碼 </lable><input type="password" name="userpwd" placeholder="請輸入密碼" required><br>
+                    <lable>電話 </lable><input type="tel" name="usertel" placeholder="請輸入電話" required><br>
+                    <lable>信箱 </lable><input type="email" name="usermail" placeholder="請輸入信箱" required><br>
+                    <lable>身分 </lable><input type="radio" name="userauth" value="user">一般會員<input type="radio" name="userauth" value="admin">廠商<br>
+                    <input type="reset" class="btn" value="重填"><input type="submit" class="btn" name="submit" value="立即註冊"><br>
+                </form>
+                <span>已經是會員了嗎？立即<a href="/cccamp/login.php">登入</a></span><br>
+            </div>
+        </div>
+
+
+
+
+
+
+
         <?php } ?>
 
         <?php include 'footer.php'; ?>
