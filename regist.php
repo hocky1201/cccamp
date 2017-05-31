@@ -41,36 +41,41 @@
             exit;
         }else {
         ?>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <form action="regist.php" method="post">
+                    <h4 class="page-header">會員註冊</h4>
+                    <div class="input-group">
+                        <span class="input-group-addon">帳號</span>
+                        <input type="text" class="form-control" name="userid" placeholder="請輸入帳號" required autofocus>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">密碼</span>
+                        <input type="password" class="form-control" name="userpwd" placeholder="請輸入密碼" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">姓名</span>
+                        <input type="text" class="form-control" name="username" placeholder="請輸入真實姓名" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">電話</span>
+                        <input type="number" class="form-control" name="usertel" placeholder="請輸入電話" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">信箱</span>
+                        <input type="mail" class="form-control" name="usermail" placeholder="請輸入電子信箱地址" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">身分</span>
+                        <input type="radio" name="userauth" vaLue="user" >一般會員 <input type="radio" name="userauth" vaLue="admin">廠商<br>
+                    </div>
+                    <input type="submit" class="btn btn-success" name="submit" value="立即註冊"><br>
 
-        <form action="regist.php" method="post">
-            <h4 class="page-header">會員註冊</h4>
-            <div class="input-group">
-                <span class="input-group-addon">帳號</span>
-                <input type="text" class="form-control" name="userid" placeholder="請輸入帳號" required autofocus>
+                </form>
             </div>
-            <div class="input-group">
-                <span class="input-group-addon">密碼</span>
-                <input type="password" class="form-control" name="userpwd" placeholder="請輸入密碼" required>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">姓名</span>
-                <input type="text" class="form-control" name="username" placeholder="請輸入真實姓名" required>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">電話</span>
-                <input type="number" class="form-control" name="usertel" placeholder="請輸入電話" required>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">信箱</span>
-                <input type="mail" class="form-control" name="usermail" placeholder="請輸入電子信箱地址" required>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">身分</span>
-                <input type="radio" name="userauth" vaLue="user" >一般會員 <input type="radio" name="userauth" vaLue="admin">廠商<br>
-            </div>
-            <input type="submit" class="btn btn-success" name="submit" value="立即註冊"><br>
-
-        </form>
+            <div class="col-sm-3"></div>
+        </div>
         <?php } ?>
 
         <?php include 'footer.php'; ?>

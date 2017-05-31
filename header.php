@@ -58,11 +58,10 @@
                 }elseif ($_SESSION['auth'] == 'user') {
                     echo "<li><a href=''>會員資料修改</a></li>
                         <li><a href='allcamp.php'>營隊一覽</a></li>
-                        <li><a href=''>營隊收藏</a></li>
-                        <li><a href=''>我的營隊收藏</a></li>";
+                        <li><a href=''>營隊收藏</a></li>";
                 }elseif ($_SESSION['auth'] == 'admin') {
                     echo "<li><a href='MAdData.php'>修改個人資料</a></li>
-                        <li><a href='newcamp.php'>刊登營隊</a></li
+                        <li><a href='newcamp.php'>刊登營隊</a></li>
                         <li><a href='editcamp.php'>編輯營隊</a></li>";
                 }
                 ?>
