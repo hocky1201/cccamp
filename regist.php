@@ -68,8 +68,14 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">身分</span>
-                        <input type="radio" name="userauth" vaLue="user" >一般會員 <input type="radio" name="userauth" vaLue="admin">廠商<br>
+                        
+                        <input type="radio" class="radio-inline" name="userauth" vaLue="user" >一般會員 
+                        <input type="radio" class="radio-inline" name="userauth" vaLue="admin">廠商<br>
                     </div>
+
+                    
+
+
                     <input type="submit" class="btn btn-success" name="submit" value="立即註冊"><br>
 
                 </form>

@@ -14,30 +14,13 @@
     
         <?php include "header.php"; 
 
-        if(!isset($_SESSION['user'])){ ?>
+        if(!isset($_SESSION['user'])){ 
+            header ('Location: loginalert.php');
 
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">尚未登入</h3>
-                </div>
-                <div class="panel-body">
-                    <p>請登入</p>
-                    
-                </div>
-            </div>
-
-        <?php }else if ($_SESSION['user'] != 'admin') {?>
+        }else if ($_SESSION['user'] != 'admin') {
+            header ('Location: authalert.php');
         
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">權限不符</h3>
-                </div>
-                <div class="panel-body">
-                    <p>這不是你該來的地方</p>
-                    <a href='index.php' class='btn btn-default navbar-btn'>我知道了</a>
-                </div>
-            </div>
-        <?php }else {?>
+        }else {?>
             <ul>
                 <li><a href=''>修改個人資料</a></li><li>|</li>
                 <li><a href=''>刊登營隊</a></li><li>|</li>

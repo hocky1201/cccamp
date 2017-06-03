@@ -14,15 +14,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container text-center">
 
         <?php include 'header.php'; ?>
 
 
         <div class="quicknav">
             <ul>
-                <li><a href="">修改個人資料</a></li><li> | </li>
-                <li><a href="newcamp.php">建立營隊</a></li><li> | </li>
+                <li><a href="">修改個人資料</a></li>
+                <li><a href="newcamp.php">建立營隊</a></li>
                 <li><a href="">編輯營隊（刪除）</a></li>
             </ul>
         </div>
