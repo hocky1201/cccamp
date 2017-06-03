@@ -38,13 +38,13 @@
                 </ul>";
         }elseif ($_SESSION['auth'] == 'user') {
             echo "<ul>
-                <li><a href=''>會員資料修改</a></li><li>|</li>
+                <li><a href='mydata.php'>我的資料</a></li><li>|</li>
                 <li><a href='allcamp.php'>營隊一覽</a></li><li>|</li>
-                <li><a href=''>我的營隊收藏</a></li>
+                <li><a href='mycollect.php'>我的營隊收藏</a></li>
                 </ul>";
         }elseif ($_SESSION['auth'] == 'admin') {
             echo "<ul>
-                <li><a href='MAdData.php'>修改個人資料</a></li><li>|</li>
+                <li><a href='mydata.php'>我的資料</a></li><li>|</li>
                 <li><a href='newcamp.php'>刊登營隊</a></li><li>|</li>
                 <li><a href='mycamp.php'>我的營隊總覽與修改</a></li><li>|</li>
                 </ul>";
