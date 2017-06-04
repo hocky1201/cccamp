@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,23 +9,34 @@
 </head>
 <body>
     <?php include "header.php"; ?>
+
+
+
 <?php
  include "dbconnect.php";
 
- $result=mysqli_query($link,"SELECT * FROM activity");
+if (isset($_SESSION['auth'])){
+	$finda=$_SESSION['user'];
+	$checka = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$finda' ; ");
+    $rowFa = mysqli_fetch_assoc($checka);
+        if(isset($rowFa)) 
+            $u_code= $rowFa['u_code'];
+			
+}
 
+
+$act_code=$_GET["sact_code"];
+
+
+$result=mysqli_query($link,"Select * From activity Where act_code=$act_code; ");
 echo "<table border=1>";
-
-
-while($row=mysqli_fetch_assoc($result)){
-        echo"<tr>";
+while($row=mysqli_fetch_assoc($result)){    
+echo"<tr>";
         echo "<td>"; echo "海報位置"; echo "</td>";
 echo "<td>";
-echo "營隊名稱:".$row["act_name"]."<br>";
-$act_name=$row["act_name"];
-$act_code= $row['act_code'];
+echo "<h2>營隊名稱:".$row["act_name"]."</h2><br>";
 $org=$row["act_ORG"];
-echo "舉辦機關:<a href='supIntro.php?sact_code=$act_code && sact_name=$act_name'>$org</a><br>";
+echo "舉辦機關:".$org."<br>";
 echo "報名費:".$row["act_price"]."<br>";
 echo "縣市:".$row["act_area"]."<br>";
 echo "招生對象:".$row["act_stage1"].$row["act_stage2"].$row["act_stage3"].$row["act_stage4"].$row["act_stage5"].$row["act_stage6"].$row["act_stage7"].$row["act_stage8"]."<br>";
