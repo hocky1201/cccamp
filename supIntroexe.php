@@ -30,12 +30,13 @@ $act_code=$_POST["act_code"];
 $col_code=$_POST["col_code"];
 
 
-
+if($_POST["c_content"]!=""){
  $sql3="INSERT INTO comment (act_code, u_code, c_content) 
  VALUES ('$act_code', '$u_code','$c_content')";
 
 
  $result=mysqli_query($link, $sql3);
+}
 
 if(isset($_POST["col_record"])){
     
