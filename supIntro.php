@@ -31,12 +31,12 @@ if(isset($_POST['subb'])) {
     $col_record=$_POST["col_record"];
     $act_code=$_POST["act_code"];
 
-
+if($_POST["c_content"]!=""){
     $sql3="INSERT INTO comment (act_code, u_code, c_content) 
     VALUES ('$act_code', '$usu_code','$c_content')";
 
     $result=mysqli_query($link, $sql3);
-
+        }
     if(isset($_POST["col_record"])){
 
     $sql4="INSERT INTO collect (act_code, u_code, col_record) 
@@ -68,14 +68,18 @@ if(isset($_POST['subb'])) {
 
     echo'<h4>對'.$act_ORG.'的評價:</h4><br/>';
 
-    $result=mysqli_query($link,"Select comment.c_content From comment,activity Where comment.act_code = activity.act_code And activity.u_code = $u_code; ");
+    $result=mysqli_query($link,"Select comment.c_content,act_name From comment,activity Where comment.act_code = activity.act_code And activity.u_code = $u_code; ");
 
     echo "<table border=1>";
+    echo"<tr><td>營隊</td>";
+    echo"<td>評價</td>";
+    echo "</tr>";
 
     while($row=mysqli_fetch_assoc($result)){    
-    echo"<tr>";
-    echo "<td>";
-    echo "內容:".$row["c_content"]."<br>";
+   
+    echo "<tr><td>";
+    echo $row["act_name"]."</td><td>";
+    echo $row["c_content"]."<br>";
     echo "</td>";
             }
     echo"<table>";

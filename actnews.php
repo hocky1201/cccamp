@@ -36,7 +36,7 @@ echo '</form>';
 
 date_default_timezone_set("Asia/Taipei");
 
-$time=date('Y年n月j日h時i分s秒 ');
+$time=date('Y年n月j日H時i分s秒 ');
 
 $n_content=$_POST["n_content"];
 

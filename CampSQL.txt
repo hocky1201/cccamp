@@ -18,7 +18,14 @@ CREATE TABLE `activity` (
     act_desc varchar(300) NOT NULL,
     act_price int(5) NOT NULL,
     act_area ENUM('臺北市', '新北市', '桃園市' ,'臺中市', '臺南市', '高雄市', '基隆市', '桃園縣', '新竹市', '新竹縣', '苗栗縣', '彰化市', '彰化縣', '南投縣', '雲林縣', '嘉義市', '嘉義縣', '屏東市', '屏東縣', '台東縣', '花蓮市', '花蓮縣', '宜蘭縣', '澎湖縣' ,'金門縣', '連江縣', '香港', '海外', '其他') NOT NULL,
-    act_stage SET('幼稚園', '國小', '國中', '高中', '高職', '大專院校', '研究所', '社會人士' ) NOT NULL, /*可複選*/
+    act_stage1 varchar(10), /*SET('幼稚園', '國小', '國中', '高中', '高職', '大專院校', '研究所', '社會人士' ) NOT NULL,可複選*/
+    act_stage2 varchar(10),
+    act_stage3 varchar(10),
+    act_stage4 varchar(10),
+    act_stage5 varchar(10),
+    act_stage6 varchar(10),
+    act_stage7 varchar(10),
+    act_stage8 varchar(10),
     act_field ENUM('法政', '財經', '外語', '數理化學', '地球與環境', '資訊', '生物資源', '建築', '設計', '藝術', '社會與心理', '大眾傳播', '文史哲', '教育', '管理', '運動遊憩', '工程', '機器人', '生命科學', '醫藥衛生', '其他') NOT NULL,
     act_poster LONGBLOB,
     act_url varchar(100) NOT NULL,
@@ -35,7 +42,7 @@ CREATE TABLE `activity` (
 /*CREATE Activity END*/
 
 
-CREATE TABLE `actcomment` (
+CREATE TABLE `comment` (
 	cmnt_code int NOT NULL AUTO_INCREMENT,
     u_code int NOT NULL,
     act_code int NOT NULL,
@@ -43,3 +50,9 @@ CREATE TABLE `actcomment` (
     PRIMARY KEY (cmnt_code, u_code, act_code)
 );
 /*CREATE comment END*/
+
+CREATE TABLE `collection` (
+    coll_code int NOT NULL AUTO_INCREMENT ,
+    u_code int NOT NULL,
+    act_code int NOT NULL
+);

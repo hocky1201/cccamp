@@ -24,7 +24,7 @@ if ($_SESSION['auth'] == 'user'){
 }
 
 
-$result=mysqli_query($link,"select * from activity WHERE act_code IN (SELECT act_code FROM collect WHERE u_code=3 );");
+$result=mysqli_query($link,"select * from activity WHERE act_code IN (SELECT act_code FROM collect WHERE u_code=$u_code );");
 
 while($row=mysqli_fetch_assoc($result)){
         
