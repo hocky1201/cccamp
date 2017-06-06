@@ -33,7 +33,7 @@ $camp= $row['camp'];
 }
 echo"<h4>最受歡迎的營隊:<a href='campIntro.php?sact_code=$act_code '>$act_name</a></h4><br>";
 echo"被收藏次數:".$camp."<br><br>";
-echo"<h4>最受歡迎的營隊舉辦單位:".$act_ORG."</h4><br>";
+
 }
 $resultc=mysqli_query($link,"SELECT act_code,COUNT(c_code) as com FROM `comment` GROUP BY act_code ORDER BY COUNT(c_code) DESC LIMIT 1;");
 while($rowc=mysqli_fetch_assoc($resultc)){

@@ -140,8 +140,8 @@
                 <input type="radio" name="act_field" vaLue="20">醫藥衛生
                 <input type="radio" name="act_field" vaLue="21">其他
                 <br/><br/>';
-                echo '上傳海報: <input type="file" name="act_poster"><br/><br/>';
-                echo '營隊網站網址: <input type="text" name="act_url"><br/><br/>';
+                echo '上傳海報(網址): <input type="text" name="act_poster" placeholder="請存入圖片網址!!"><br/><br/>';
+                echo '營隊網站網址: <input type="text" name="act_url" ><br/><br/>';
                 echo '報名時間: <input type="date" name="act_signup_starttime">';
                 echo '~ <input type="date" name="act_signup_endtime"><br/><br/>';
                 echo '營期: <input type="date" name="act_starttime">';

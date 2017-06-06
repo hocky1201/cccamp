@@ -72,9 +72,10 @@
         $result=mysqli_query($link, $sql2);
 
 
+           }
         mysqli_close($link);
-        header('Location: index.php');
-        }  ?>
+        
+          ?>
 
     </div>
 </body>

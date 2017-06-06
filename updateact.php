@@ -38,6 +38,7 @@
 			$act_stage7=$row["act_stage7"];
 			$act_stage8=$row["act_stage8"];
 			$act_field=$row["act_field"];
+			$act_poster=$row["act_poster"];
 			$act_signup_starttime=$row["act_signup_starttime"];
 			$act_signup_endtime=$row["act_signup_endtime"];
 			$act_starttime=$row["act_starttime"];
@@ -121,6 +122,8 @@
 		<input type='radio' name='exeact_field' vaLue='20'>醫藥衛生
 		<input type='radio' name='exeact_field' vaLue='21'>其他
 		<br/><br/>";				
+
+		echo"營隊海報圖片(網址): <input type='text' value='$act_poster' name='exeact_poster'><br/><br/>";
 
 		echo"營隊網站網址: <input type='text' value='$url' name='exeact_url'><br/><br/>";
 		echo"報名時間: <input type='date' value='$act_signup_starttime' name='exeact_signup_starttime'>";

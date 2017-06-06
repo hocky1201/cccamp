@@ -38,7 +38,8 @@
 
         while($row=mysqli_fetch_assoc($result)){
             echo"<tr>";
-            echo "<td>"; echo "海報位置"; echo "</td>";
+            $act_poster=$row["act_poster"];
+            echo"<td><img src='$act_poster' alt='營隊海報' width=250px height=200px></td>";
             echo "<td>";
             $act_code=$row["act_code"];
             echo "營隊名稱:".$row["act_name"]."<br>";

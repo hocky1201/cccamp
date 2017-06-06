@@ -37,14 +37,11 @@ while($row=mysqli_fetch_assoc($result)){
 echo"<tr>";
 echo "<td>";
 $u_code=$row["u_code"];
-echo $row["u_name"]."<br>";
-echo $row["u_id"]."<br>";
-echo $row["u_email"]."<br>";
-echo $row["u_phone"]."<br>";
-echo $row["u_auth"]."<br>";
-echo "</td>";
-echo "<td>";
-echo "<a href='sudeluser.php?su_code=$u_code'>刪除資料</a>";
+echo "姓名:".$row["u_name"]."<br>";
+echo "帳號:".$row["u_id"]."<br>";
+echo "信箱:".$row["u_email"]."<br>";
+echo "電話:".$row["u_phone"]."<br>";
+echo "身分:".$row["u_auth"]."<br>";
 echo "</td>";
 
 
