@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="footer footer-static">
+        <div class="footer footer-fixed">
             <span>CCcamp &copy 2017</span>
         </div>
     </div>

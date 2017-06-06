@@ -11,10 +11,13 @@
 </head>
 <body>
     <div class="container text-center">
-        <?php include "header.php"; ?>
+        
+        <?php 
+        
+        include "header.php";
 
-        <?php
         if(isset($_POST['submit'])) {
+
             $userid = $_POST['userid'];
             $userpwd = $_POST['userpwd'];
             $username = $_POST['username'];
@@ -41,7 +44,7 @@
             exit;
         }else {
         ?>
-        <div class="row">
+        <div class="row text-center">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
                 <form action="regist.php" method="post">
@@ -67,10 +70,8 @@
                         <input type="mail" class="form-control" name="usermail" placeholder="請輸入電子信箱地址" required>
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon">身分</span>
-                        
-                        <input type="radio" class="radio-inline" name="userauth" vaLue="user" >一般會員 
-                        <input type="radio" class="radio-inline" name="userauth" vaLue="admin">廠商<br>
+                        <input type="radio" class="radio-inline align-center" name="userauth" vaLue="user" >一般會員 
+                        <input type="radio" class="radio-inline " name="userauth" vaLue="admin">廠商<br>
                     </div>
 
                     

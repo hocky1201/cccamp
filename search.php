@@ -40,7 +40,7 @@
                 <div class="row bg-info">
 
                     <div class="col-sm-3">
-                        <img src="" alt="營隊海報">
+                        <img src="<?php echo $row['act_poster'];?>" alt="營隊海報" width=250px height=200px>
                     </div>
 
                     <div class="col-sm-6 text-left">

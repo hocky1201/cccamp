@@ -14,17 +14,25 @@
 
 	<div class="container text-center">
 		
-		<?php include "header.php"; include "dbconnect.php";
+		<?php 
 
-		$result=mysqli_query($link,"SELECT * FROM activity");
+		include "header.php";
+		include "dbconnect.php";
+
+		$result = mysqli_query($link,"SELECT * FROM activity");
 
 
-		while($row=mysqli_fetch_assoc($result)){ ?>
+		while($row = mysqli_fetch_assoc($result)){
+			$act_name=$row["act_name"];
+			$act_code= $row["act_code"];
+			$act_org= $row["act_ORG"];
+
+			?>
 
 			<div class="row bg-info">
 
 				<div class="col-sm-3">
-					<img src="" alt="營隊海報">
+					<img src="<?php echo $row['act_poster'];?>" alt="營隊海報" width=250px height=200px>
 				</div>
 
 				<div class="col-sm-6 text-left">
@@ -33,7 +41,7 @@
 					<p>營隊類型 : <?php echo $row["act_field"] ;?></p>
 					<p>招生對象 : <?php echo $row["act_stage1"];echo $row["act_stage2"];echo $row["act_stage3"];echo $row["act_stage4"];echo $row["act_stage5"];echo $row["act_stage6"];echo $row["act_stage7"];echo $row["act_stage8"];?></p>
 					<p>報名時段 : <?php echo $row["act_signup_starttime"] ;?> 至 <?php echo $row["act_signup_endtime"] ;?></p>
-					<p>舉辦機關 : <a href="supIntro.php?<?php echo $row['act_code'];?>"><?php echo $row['act_ORG']; ?></a></p>
+					<p><?php echo"舉辦機關 : <a href='supIntro.php?sact_code=$act_code && sact_name=$act_name'>$act_org</a>"; ?></p>
 				</div>
 
 				<div class="col-sm-3 text-right">
@@ -46,11 +54,15 @@
 			
 			</div>
 			<hr>	
-		<?php }?>
+		<?php }
 
 
 
-		<?php mysqli_close($link); ?>
+		mysqli_close($link); 
+		
+		
+		include 'footer.php';
+		?>
 
 	</div>
 

@@ -24,8 +24,8 @@ if(isset($_SESSION['user'])){
         
         <?php include "header.php"; ?>
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
                 <?php
 
                 if(isset($_POST['submit'])) {
@@ -38,6 +38,7 @@ if(isset($_SESSION['user'])){
 
                     if(isset($row)) {
                         $_SESSION['user'] = $row['u_id'];
+                        $_SESSION['code'] = $row['u_code'];
                         $_SESSION['auth'] = $row['u_auth'];
 
                         if( $_SESSION['auth'] == 'admin'){
@@ -48,6 +49,7 @@ if(isset($_SESSION['user'])){
                         }
                     }else {
                         $_POST = array();
+
                         echo "帳號或密碼錯誤，<a href='login.php'>再試一次</a>";
                     }
                 }else {?> 
@@ -63,7 +65,7 @@ if(isset($_SESSION['user'])){
 
             </div>
             
-            <div class="col-md-3"></div>
+            <div class="<col-md-4></col-md-4>"></div>
 
         </div>
         

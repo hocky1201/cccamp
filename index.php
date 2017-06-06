@@ -12,14 +12,83 @@
 <body>
     <div class="container text-center">
 
-        <?php include 'header.php'; ?>
+        <?php include 'header.php'; 
+        include "dbconnect.php";?>
 
         <div class="jumbotron">
             <h1>CCcamp!</h1>
             <p>這是一個營隊網站</p>
             <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">最新活動公告</h3>
+                    </div>
+                    <div class="panel-body">                
+                        <table class="table">
+                            <?php
+                            
+                            $result=mysqli_query($link,"SELECT * FROM news ORDER BY n_code DESC LIMIT 6");
+
+                            
+                                echo "<tr><td>公告內容</td>";    
+                                echo "<td>公告時間</td></tr>";
+                            while($row=mysqli_fetch_assoc($result)){
+                                
+                                echo"<tr>";
+                                echo "<td>".$row["n_content"]."</td>";
+                                echo "<td>".$row["n_time"]."</td>";
+                                echo "</tr>";
+                            }
+                            
+                            ?>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">最新營隊</h3>
+                    </div>
+                    <div class="panel-body">                
+                        <table class="table">
+                            <?php
+                            
+                            $result2 = mysqli_query($link,"SELECT * FROM `activity` ORDER BY `act_code` DESC LIMIT 6");
+                            
+                            echo "<tr><td>活動名稱</td>";    
+                            echo "<td>活動敘述</td>";
+                            echo "<td>活動期間</td></tr>";
+
+                            while( $row2 = mysqli_fetch_assoc($result2)){
+                                echo"<tr>";
+                                echo "<td>";
+                                echo $row2["act_name"]."<br>";
+                                echo "</td><td>";
+                                echo $row2["act_desc"]."<br>";
+                                echo "</td><td>";
+                                echo $row2["act_starttime"]."至".$row2["act_endtime"];
+                                echo "</td></tr>";
+                            }
+                            
+                            
+                            mysqli_close($link);
+                            ?>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
 
         </div>
+
 
         <?php include 'footer.php'; ?>
 

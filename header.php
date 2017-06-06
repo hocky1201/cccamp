@@ -53,17 +53,26 @@
                 <?php
                 if(!isset($_SESSION['auth'])) {
                     echo "<li><a href='allcamp.php'>營隊一覽</a></li>
-                        <li><a href='user.php'>會員專區</a></li>
+                        <li><a href='allcamp.php'>營隊一覽</a></li>
                         <li><a href='sup.php'>廠商專區</a></li>";
                 }elseif ($_SESSION['auth'] == 'user') {
                     echo "<li><a href='mydata.php'>我的資料</a></li>
                         <li><a href='allcamp.php'>營隊一覽</a></li>
-                        <li><a href='mycollect.php'>我的營隊收藏</a></li>";
+                        <li><a href='hot.php'>熱門資料</a></li>
+                        <li><a href='mycollect.php'>營隊收藏</a></li>";
                 }elseif ($_SESSION['auth'] == 'admin') {
                     echo "<li><a href='mydata.php'>我的資料</a></li>
                         <li><a href='newcamp.php'>刊登營隊</a></li>
-                        <li><a href='mycamp.php'>我的營隊總覽與修改</a></li>";
+                        <li><a href='actnews.php'>管理最新消息</a></li>
+                        <li><a href='mycamp.php'>營隊修改</a></li>";
+                }elseif  ($_SESSION['auth'] == 'su') {
+                    echo "<li><a href='mydata.php'>我的資料</a></li>
+                        <li><a href='sucamp.php'>管理營隊</a></li>
+                        <li><a href='suuser.php'>管理會員</a></li>
+                        <li><a href='sucom.php'>管理評價</a></li>
+                        <li><a href='sunews.php'>管理最新消息</a></li>";
                 }
+                
                 ?>
                 </ul>
             </div><!-- /.navbar-collapse -->

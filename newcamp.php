@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>刊登營隊 - CCcamp</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -14,26 +14,18 @@
 <body>
     <div class="container">
 
-        <?php include 'header.php';
+        <?php 
+        include 'header.php';
 
         if(!isset($_SESSION['user'])) {
 
-            echo "請登入";
-            header("Refresh:5; url=login.php");
+            header ('Location: loginalert.php'); 
 
-        }else if ($_SESSION['auth'] == 'user') { ?>
+        }else if ($_SESSION['auth'] == 'user') {
+            
+            header ('Location: authalert.php');  
 
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">權限不符</h3>
-                </div>
-                <div class="panel-body">
-                    <p>這不是你該來的地方</p>
-                    <a href='index.php' class='btn btn-default navbar-btn'>我知道了</a>
-                </div>
-            </div>
-
-        <?php }else {
+        }else {
             
             if(isset($_POST['submit'])) {
 
@@ -158,7 +150,7 @@
                 echo '聯絡人電話: <input type="text" name="act_PICphone"><br/><br/>';
                 echo '舉辦機關: <input type="text" name="act_ORG"><br/><br/>';
 
-                echo '<input type="submit">';
+                echo '<input type="submit" name="submit">';
                 echo '</form>';
 
 
