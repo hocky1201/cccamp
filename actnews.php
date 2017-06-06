@@ -5,76 +5,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>刊登公告</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container text-center">
-
 
         <?php
 
         include "header.php";
         include "dbconnect.php";
 
+        if (!isset($_SESSION['user'])) {
+            header ('Location: loginalert.php');
+        }elseif ( $_SESSION['auth'] == 'user') {
+            header ('Location: authalert.php');
+        }else {
 
-        if ($_SESSION['auth'] == 'admin'){
-            $find=$_SESSION['user'];
-            $check = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$find' ; ");
-            $rowF = mysqli_fetch_assoc($check);
+            $u_code= $_SESSION['code'];
 
-            if(isset($rowF)) 
-            $u_code= $rowF['u_code'];
-        }
+            if (isset($_POST['submit'])) {
+                
+                date_default_timezone_set("Asia/Taipei");
 
+                $time = date('Y年n月j日H時i分');
 
-        echo '<form method="post" action="actnews.php" >';
-        echo'<h4>刊登公告</h4><br/>';
-        echo'公告事項:<textarea name="n_content" rows="10" cols="50" placeholder="限500字"></textarea><br/><br/>';
-        echo'<input type="submit" name="subb">';
-        echo '</form>';
+                $n_content = $_POST["n_content"];
 
+                $sql2 = "INSERT INTO `news` (n_content,n_time,u_code) VALUES ('$n_content','$time','$u_code')";
+                $result = mysqli_query($link, $sql2);
+                header ('Refresh: 0');
 
-        date_default_timezone_set("Asia/Taipei");
+            }else {?>
 
-        $time=date('Y年n月j日H時i分s秒 ');
+            <div class="row clearfix">
+                <div class="col-sm-0"></div>
+                <div class="col-sm-6">
+                        <h4 class="page-header">我刊登的公告</h4>
+                        <table class="table">
+                            <?php
+                    
+                            $result = mysqli_query($link,"SELECT * FROM news where u_code=$u_code;");
 
-        $n_content=$_POST["n_content"];
+                            echo "<tr><td>公告內容</td>";    
+                            echo "<td>公告時間</td></tr>";
+                            while($row=mysqli_fetch_assoc($result)){
+                                $n_code=$row["n_code"];
+                                echo"<tr>";
+                                echo "<td>".$row["n_content"]."</td>";
+                                echo "<td>".$row["n_time"]."</td>";
+                                echo "<td><a href='delnews.php?sn_code=$n_code'>刪除資料</a></td>";
+                                echo "</tr>";
+                            }
 
-        echo"<h4>我刊登的公告</h4>";
-        $result=mysqli_query($link,"SELECT * FROM news where u_code=$u_code;");
+                            ?>
+                        </table>
+                </div>
+                <div class="col-sm-6">
+                    <form action="actnews.php" method="POST">
+                        <h4 class="page-header">刊登公告</h4>
+                        <div class="input-group">
+                            <span class="input-group-addon">公告事項</span>
+                            <textarea class="form-control" rows="5" name="n_content" placeholder="限500字" required></textarea>
+                        </div>
+                        <hr>
+                        <input type="submit" class="btn btn-success" name="submit" value="發送公告">
+                    </form>
+                </div>
+            </div>
+            <?php } 
 
-        echo "<table border=1>";
-
-
-        while($row=mysqli_fetch_assoc($result)){
-        echo"<tr>";
-        echo "<td>";
-        $n_code=$row["n_code"];
-        echo $row["n_content"]."<br>";
-        echo "</td><td>";
-        echo $row["n_time"]."<br>";
-        echo "</td><td>";
-        echo "<a href='delnews.php?sn_code=$n_code'>刪除資料</a>";
-        echo "</td>";
-
-
-        }
-        echo"<table>";
-
-
-        if(isset($_POST['subb'])) {
-
-        $sql2="INSERT INTO news (n_content,n_time,u_code) 
-        VALUES ('$n_content','$time','$u_code')";
-        $result=mysqli_query($link, $sql2);
-
-
-           }
         mysqli_close($link);
-        
+        include 'footer.php';
+
+        }
           ?>
 
     </div>

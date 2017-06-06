@@ -8,7 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -21,7 +22,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">CCcamp</a>
+            <a class="navbar-brand" href="index.php">CCCamp</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,28 +52,63 @@
                 
                 <ul class="nav navbar-nav navbar-right">
                 <?php
-                if(!isset($_SESSION['auth'])) {
-                    echo "<li><a href='allcamp.php'>營隊一覽</a></li>
-                        <li><a href='allcamp.php'>營隊一覽</a></li>
-                        <li><a href='sup.php'>廠商專區</a></li>";
+                if(!isset($_SESSION['auth'])) { ?>
+                    <li><a href='allcamp.php'>營隊一覽</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 會員專區 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="mydata.php">會員資料修改</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="mycollect.php">我的營隊收藏</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href='#'>XXXXXX</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 廠商專區 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="mydata.php">廠商資料修改</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href='newcamp.php'>刊登營隊</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href='mycamp.php'>修改營隊</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href='actnews.php'>管理最新消息</a></li>
+                        </ul>
+                    </li>
+                <?php
                 }elseif ($_SESSION['auth'] == 'user') {
-                    echo "<li><a href='mydata.php'>我的資料</a></li>
-                        <li><a href='allcamp.php'>營隊一覽</a></li>
-                        <li><a href='hot.php'>熱門資料</a></li>
-                        <li><a href='mycollect.php'>營隊收藏</a></li>";
+                ?>
+                    <li><a href='mydata.php'>我的資料</a></li>
+                    <li><a href='allcamp.php'>營隊一覽</a></li>
+                    <li><a href='hot.php'>熱門資料</a></li>
+                    <li><a href='mycollect.php'>營隊收藏</a></li>
+                <?php 
                 }elseif ($_SESSION['auth'] == 'admin') {
-                    echo "<li><a href='mydata.php'>我的資料</a></li>
-                        <li><a href='newcamp.php'>刊登營隊</a></li>
-                        <li><a href='actnews.php'>管理最新消息</a></li>
-                        <li><a href='mycamp.php'>營隊修改</a></li>";
-                }elseif  ($_SESSION['auth'] == 'su') {
-                    echo "<li><a href='mydata.php'>我的資料</a></li>
-                        <li><a href='sucamp.php'>管理營隊</a></li>
-                        <li><a href='suuser.php'>管理會員</a></li>
-                        <li><a href='sucom.php'>管理評價</a></li>
-                        <li><a href='sunews.php'>管理最新消息</a></li>";
+                ?>
+                    <li><a href='mydata.php'>我的資料</a></li>
+                    <li><a href='actnews.php'>管理最新消息</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 管理營隊 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href='newcamp.php'>刊登營隊</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href='mycamp.php'>修改營隊</a></li>
+                        </ul>
+                    </li>
+
+                <?php 
+                }elseif  ($_SESSION['auth'] == 'su') { 
+                ?>
+                    <li><a href='mydata.php'>我的資料</a></li>
+                    <li><a href='sucamp.php'>管理營隊</a></li>
+                    <li><a href='suuser.php'>管理會員</a></li>
+                    <li><a href='sucom.php'>管理評價</a></li>
+                    <li><a href='sunews.php'>管理最新消息</a></li>
+                <?php
                 }
-                
                 ?>
                 </ul>
             </div><!-- /.navbar-collapse -->

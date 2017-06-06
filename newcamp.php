@@ -8,11 +8,11 @@
     <title>刊登營隊 - CCcamp</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container text-center">
 
         <?php 
         include 'header.php';
@@ -69,94 +69,141 @@
 
                 mysqli_close($link);
 
-            }else {
-                echo '<form method="post" action="newcamp.php" enctype="multipart/form-data">';
-                echo '<h4>刊登營隊</h4><br/>';
-                echo '活動名稱:<input type="text" name="act_name"><br/><br/>';
-                echo '活動敘述:<textarea name="act_desc" rows="6" cols="50" placeholder="限300字"></textarea><br/><br/>';
-                echo '報名費:<input type="text" name="act_price"><br/><br/>';
-                echo '地點:<select name="act_area">
-                <option vaLue="1">臺北市</option>
-                <option vaLue="2">新北市</option>
-                <option vaLue="3">桃園市</option>
-                <option vaLue="4">臺中市</option>
-                <option vaLue="5">臺南市</option>
-                <option vaLue="6">高雄市</option>
-                <option vaLue="7">基隆市</option>
-                <option vaLue="8">桃園縣</option>
-                <option vaLue="9">新竹市</option>
-                <option vaLue="10">新竹縣</option>
-                <option vaLue="11">苗栗縣</option>
-                <option vaLue="12">彰化市</option>
-                <option vaLue="13">彰化縣</option>
-                <option vaLue="14">南投縣</option>
-                <option vaLue="15">雲林縣</option>
-                <option vaLue="16">嘉義市</option>
-                <option vaLue="17">嘉義縣</option>
-                <option vaLue="18">屏東市</option>
-                <option vaLue="19">屏東縣</option>
-                <option vaLue="20">台東縣</option>
-                <option vaLue="21">花蓮市</option>
-                <option vaLue="22">花蓮縣</option>
-                <option vaLue="23">宜蘭縣</option>
-                <option vaLue="24">澎湖縣</option>
-                <option vaLue="25">金門縣</option>
-                <option vaLue="26">連江縣</option>
-                <option vaLue="27">香港</option>
-                <option vaLue="28">海外</option>
-                <option vaLue="29">其他</option>
-                </select> <br/><br/>';
-                echo '開放學齡: 
-                <input type="checkbox" name="act_stage1" vaLue="幼稚園 " >幼稚園
-                <input type="checkbox" name="act_stage2" vaLue="國小 ">國小
-                <input type="checkbox" name="act_stage3" vaLue="國中 ">國中
-                <input type="checkbox" name="act_stage4" vaLue="高中 ">高中
-                <input type="checkbox" name="act_stage5" vaLue="高職 ">高職
-                <input type="checkbox" name="act_stage6" vaLue="大專院校 ">大專院校
-                <input type="checkbox" name="act_stage7" vaLue="研究所 ">研究所
-                <input type="checkbox" name="act_stage8" vaLue="社會人士 ">社會人士
-                <br/><br/>';
+            }else { ?>
+                <div class="row clearfix">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <form method="POST" action="newcamp.php" enctype="multipart/form-data">
+                            <h2 class="page-header">建立營隊</h2>
 
-                echo '營隊類型: 
-                <input type="radio" name="act_field" vaLue="1">法政
-                <input type="radio" name="act_field" vaLue="2">財經
-                <input type="radio" name="act_field" vaLue="3">外語
-                <input type="radio" name="act_field" vaLue="4">數理化學
-                <input type="radio" name="act_field" vaLue="5">地球與環境
-                <input type="radio" name="act_field" vaLue="6">資訊
-                <input type="radio" name="act_field" vaLue="7">生物資源
-                <input type="radio" name="act_field" vaLue="8">建築
-                <input type="radio" name="act_field" vaLue="9">設計
-                <input type="radio" name="act_field" vaLue="10">藝術
-                <input type="radio" name="act_field" vaLue="11">社會與心理
-                <input type="radio" name="act_field" vaLue="12">大眾傳播
-                <input type="radio" name="act_field" vaLue="13">文史哲
-                <input type="radio" name="act_field" vaLue="14">教育
-                <input type="radio" name="act_field" vaLue="15">管理
-                <input type="radio" name="act_field" vaLue="16">運動遊憩
-                <input type="radio" name="act_field" vaLue="17">工程
-                <input type="radio" name="act_field" vaLue="18">機器人
-                <input type="radio" name="act_field" vaLue="19">生命科學
-                <input type="radio" name="act_field" vaLue="20">醫藥衛生
-                <input type="radio" name="act_field" vaLue="21">其他
-                <br/><br/>';
-                echo '上傳海報(網址): <input type="text" name="act_poster" placeholder="請存入圖片網址!!"><br/><br/>';
-                echo '營隊網站網址: <input type="text" name="act_url" ><br/><br/>';
-                echo '報名時間: <input type="date" name="act_signup_starttime">';
-                echo '~ <input type="date" name="act_signup_endtime"><br/><br/>';
-                echo '營期: <input type="date" name="act_starttime">';
-                echo '~ <input type="date" name="act_endtime"><br/><br/>';
-                echo '聯絡人: <input type="text" name="act_PICname"><br/><br/>';
-                echo '聯絡人電話: <input type="text" name="act_PICphone"><br/><br/>';
-                echo '舉辦機關: <input type="text" name="act_ORG"><br/><br/>';
+                            <div class="input-group">
+                                <span class="input-group-addon">活動名稱</span>
+                                <input type="text" class="form-control" name="act_name" required autofocus>
+                            </div>
 
-                echo '<input type="submit" name="submit">';
-                echo '</form>';
+                            <div class="input-group">
+                                <span class="input-group-addon">活動敘述</span>
+                                <textarea class="form-control" rows="5" name="act_desc" placeholder="限300字" required></textarea>
+                            </div>
 
 
+                            <div class="input-group">
+                                <span class="input-group-addon">活動地點</span>
+                                
+                                <select class="form-control" name="act_area">
+                                    <option vaLue="0" checked>-請選擇-</option>
+                                    <option vaLue="1">臺北市</option><option vaLue="2">新北市</option>
+                                    <option vaLue="3">桃園市</option><option vaLue="4">臺中市</option>
+                                    <option vaLue="5">臺南市</option><option vaLue="6">高雄市</option>
+                                    <option vaLue="7">基隆市</option><option vaLue="8">桃園縣</option>
+                                    <option vaLue="9">新竹市</option><option vaLue="10">新竹縣</option>
+                                    <option vaLue="11">苗栗縣</option><option vaLue="12">彰化市</option>
+                                    <option vaLue="13">彰化縣</option><option vaLue="14">南投縣</option>
+                                    <option vaLue="15">雲林縣</option><option vaLue="16">嘉義市</option>
+                                    <option vaLue="17">嘉義縣</option><option vaLue="18">屏東市</option>
+                                    <option vaLue="19">屏東縣</option><option vaLue="20">台東縣</option>
+                                    <option vaLue="21">花蓮市</option><option vaLue="22">花蓮縣</option>
+                                    <option vaLue="23">宜蘭縣</option><option vaLue="24">澎湖縣</option>
+                                    <option vaLue="25">金門縣</option><option vaLue="26">連江縣</option>
+                                    <option vaLue="27">香港</option><option vaLue="28">海外</option>
+                                    <option vaLue="29">其他</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">營隊類型</span>
+
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="1">法政</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="2">財經</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="3">外語</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="4">數理化學</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="5">地球與環境</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="6">資訊</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="7">生物資源</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="8">建築</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="9">設計</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="10">藝術</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="11">社會與心理</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="12">大眾傳播</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="13">文史哲</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="14">教育</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="15">管理</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="16">運動遊憩</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="17">工程</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="18">機器人</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="19">生命科學</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="20">醫藥衛生</label>
+                                <label class="radio-inline"><input type="radio" name="act_field" vaLue="21">其他</label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <span class="input-group-addon">報名費用</span>
+                                <input type="number" class="form-control" name="act_price" required >
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">開放學齡</span>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="act_stage1" vaLue="幼稚園">幼稚園</label>
+                                    <label><input type="checkbox" name="act_stage2" vaLue="國小">國小</label>
+                                    <label><input type="checkbox" name="act_stage3" vaLue="國中">國中</label>
+                                    <label><input type="checkbox" name="act_stage4" vaLue="高中">高中</label>
+                                    <label><input type="checkbox" name="act_stage5" vaLue="高職">高職</label>
+                                    <label><input type="checkbox" name="act_stage6" vaLue="大專院校">大專院校</label><br>
+                                    <label><input type="checkbox" name="act_stage7" vaLue="研究所">研究所</label>
+                                    <label><input type="checkbox" name="act_stage8" vaLue="社會人士">社會人士</label>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">海報圖片</span>
+                                <input type="text" class="form-control" name="act_url" placeholder="請提供圖片網址" required>
+                            </div>
+
+
+
+                            <div class="input-group">
+                                <span class="input-group-addon">舉辦機關</span>
+                                <input type="text" class="form-control" name="act_ORG" required>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">聯絡人稱呼</span>
+                                <input type="text" class="form-control" name="act_PICname" required>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">聯絡人電話</span>
+                                <input type="text" class="form-control" name="act_PICphone" required>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">報名時間</span>
+                                <input type="date" class="form-control" name="act_signup_starttime" required>
+                                
+                                <span class="input-group-addon">至</span>
+                                <input type="date" class="form-control" name="act_signup_endtime" required>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">活動時間</span>
+                                <input type="date" class="form-control" name="act_starttime" required>
+                                
+                                <span class="input-group-addon">至</span>
+                                <input type="date" class="form-control" name="act_endtime" required>
+                            </div>
+                            <hr>
+                            <input type="submit" class="btn btn-success" name="submit" value="提交營隊">
+                        </form>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+        <?php
             }
+
         }
 
+        include 'footer.php';
 
         ?>
     </div>

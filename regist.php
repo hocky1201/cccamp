@@ -45,10 +45,10 @@
         }else {
         ?>
         <div class="row text-center">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
                 <form action="regist.php" method="post">
-                    <h4 class="page-header">會員註冊</h4>
+                    <h2 class="page-header">會員註冊</h2>
                     <div class="input-group">
                         <span class="input-group-addon">帳號</span>
                         <input type="text" class="form-control" name="userid" placeholder="請輸入帳號" required autofocus>
@@ -70,18 +70,18 @@
                         <input type="mail" class="form-control" name="usermail" placeholder="請輸入電子信箱地址" required>
                     </div>
                     <div class="input-group">
-                        <input type="radio" class="radio-inline align-center" name="userauth" vaLue="user" >一般會員 
-                        <input type="radio" class="radio-inline " name="userauth" vaLue="admin">廠商<br>
+                    
+                        <span class="input-group-addon">權限</span>
+                        <label class="radio-inline"><input type="radio" class="radio-inline" name="userauth" vaLue="user" >一般會員</label>
+                        <label class="radio-inline"><input type="radio" class="radio-inline" name="userauth" vaLue="admin">廠商</label>
                     </div>
 
-                    
-
-
+                    <hr>
                     <input type="submit" class="btn btn-success" name="submit" value="立即註冊"><br>
 
                 </form>
             </div>
-            <div class="col-sm-3"></div>
+            <div class="col-sm-4"></div>
         </div>
         <?php } ?>
 
