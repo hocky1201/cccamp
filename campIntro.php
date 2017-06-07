@@ -11,59 +11,64 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <?php 
-    include "header.php";
+    <div class="container">
 
-    include "dbconnect.php";
+        <?php 
+        include "header.php";
 
-    if (isset($_SESSION['auth'])){
-        $finda=$_SESSION['user'];
-        $checka = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$finda' ; ");
-        $rowFa = mysqli_fetch_assoc($checka);
-            if(isset($rowFa)) 
-                $u_code= $rowFa['u_code'];
-                
-    }
+        include "dbconnect.php";
 
-
-    $act_code=$_GET["sact_code"];
-
-
-    $result=mysqli_query($link,"Select * From activity Where act_code=$act_code; ");
-    echo "<table border=1>";
-    while($row=mysqli_fetch_assoc($result)){    
-    echo"<tr>";
-    $act_poster=$row["act_poster"];
-    echo"<td><img src='$act_poster' alt='營隊海報' width=250px height=200px></td>";
-        echo "<td>";
-    echo "<h2>營隊名稱:".$row["act_name"]."</h2><br>";
-    $org=$row["act_ORG"];
-    echo "舉辦機關:".$org."<br>";
-    echo "報名費:".$row["act_price"]."<br>";
-    echo "縣市:".$row["act_area"]."<br>";
-    echo "招生對象:".$row["act_stage1"].$row["act_stage2"].$row["act_stage3"].$row["act_stage4"].$row["act_stage5"].$row["act_stage6"].$row["act_stage7"].$row["act_stage8"]."<br>";
-    echo "營隊類型:".$row["act_field"]."<br>";
-    echo "報名時段:".$row["act_signup_starttime"];
-    echo "~".$row["act_signup_endtime"]."<br>";
-    echo "活動時間:".$row["act_starttime"];
-    echo "~".$row["act_endtime"]."<br>";
-    echo "負責人:".$row["act_PICname"];
-    echo "(".$row["act_PICphone"].")<br>";
-    echo "描述:".$row["act_desc"]."<br>";
-    $url=$row["act_url"];
-    echo "詳細資訊:<a href='$url'>$url</a><br>";
-    echo "</td>";
+        if (isset($_SESSION['auth'])){
+            $finda=$_SESSION['user'];
+            $checka = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$finda' ; ");
+            $rowFa = mysqli_fetch_assoc($checka);
+                if(isset($rowFa)) 
+                    $u_code= $rowFa['u_code'];
+                    
+        }
 
 
-
-    }
-    echo"<table>";
+        $act_code=$_GET["sact_code"];
 
 
+        $result = mysqli_query($link,"Select * From `activity` Where `act_code` = $act_code; ");
 
-    mysqli_close($link);
+        while($row = mysqli_fetch_assoc($result)){ ?>
 
+            
+			<div class="row bg-info">
 
-    ?>
+				<div class="col-sm-3">
+					<img src="<?php echo $row['act_poster'];?>" alt="營隊海報" width=250px height=200px>
+				</div>
+
+				<div class="col-sm-6 text-left">
+					<h4>營隊名稱 : <b><?php echo $row['act_name'];?></b></h4>
+					<p>營隊敘述 : <?php echo $row['act_desc'];?></p>
+					<p>營隊類型 : <?php echo $row["act_field"] ;?></p>
+					<p>招生對象 : <?php echo $row["act_stage1"];echo $row["act_stage2"];echo $row["act_stage3"];echo $row["act_stage4"];echo $row["act_stage5"];echo $row["act_stage6"];echo $row["act_stage7"];echo $row["act_stage8"];?></p>
+					<p>報名時段 : <?php echo $row["act_signup_starttime"] ;?> 至 <?php echo $row["act_signup_endtime"] ;?></p>
+					<p>舉辦機關 : <?php echo $row['act_ORG']; ?></p>
+                    <p>活動時間 : <?php echo $row["act_starttime"] ;?> 至 <?php echo $row["act_endtime"] ;?> </p>
+					<p>活動地點 : <?php echo $row["act_area"] ;?></p>
+					<p>活動費用 : <?php echo $row["act_price"] ;?>元</p>
+					<p>負責人 : <?php echo $row["act_PICname"];?>(<?php echo $row["act_PICphone"]; ?>)</p>
+					<a href='<?php echo $row["act_url"] ;?>'><button class="btn btn-primary">活動網頁</button></a>
+
+				</div>
+
+				<div class="col-sm-3 text-right">
+				</div>
+			
+			</div>
+			<hr>	
+
+        <?php
+        }
+
+        mysqli_close($link);
+
+        ?>
+    </div>
 </body>
 </html>

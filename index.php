@@ -18,9 +18,9 @@
         ?>
 
         <div class="jumbotron">
-            <h1>CCcamp!</h1>
+            <h1>CCCamp!</h1>
             <p>這是一個營隊網站</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            <p><a class="btn btn-primary btn-md" href="#" role="button">Learn more &raquo;</a></p>
         </div>
         <div class="row">
 
@@ -33,7 +33,7 @@
                         <table class="table">
                             <?php
                             
-                            $result=mysqli_query($link,"SELECT * FROM news ORDER BY n_code DESC LIMIT 6");
+                            $result=mysqli_query($link,"SELECT * FROM news ORDER BY n_time DESC LIMIT 6");
 
                             
                                 echo "<tr><td>公告內容</td>";    
@@ -48,7 +48,11 @@
                             
                             ?>
                         </table>
+                        
+                        <a class="btn btn-info btn-sm pull-right" href="allnews.php" role="button">查看更多</a>
                     </div>
+                    
+
                 </div>
             </div>
 
@@ -83,6 +87,8 @@
                             mysqli_close($link);
                             ?>
                         </table>
+                        
+                        <a class="btn btn-info btn-sm pull-right" href="allcamp.php" role="button">查看更多</a>
                     </div>
                 </div>
 

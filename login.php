@@ -1,12 +1,3 @@
-<?php
-if(isset($_SESSION['user'])){
-    echo "您已登入為:<br />";
-    foreach ($_SESSION as $key => $value)
-        echo $key." : ".$value."<br />";
-    echo "<a href='logout.php'>點此登出</a>";
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,14 +34,16 @@ if(isset($_SESSION['user'])){
                         $_SESSION['auth'] = $row['u_auth'];
 
                         echo "成功登入為".$_SESSION['user'];
-                        header ('Location: index.php');
+                        header ('Refresh: 0');
+                        exit();
                         
                     }else {
                         $_POST = array();
-
                         echo "帳號或密碼錯誤，<a href='login.php'>再試一次</a>";
                     }
-                }else {?> 
+
+                }else {?>
+
                     <form class="form-signin" action="login.php" method="post">
                         <h2 class="form-signin-heading">會員登入</h2>
                         <input type="text" class="form-control" name="userid" placeholder="帳號" required autofocus>
@@ -58,16 +51,13 @@ if(isset($_SESSION['user'])){
                         <hr>
                         <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">登入</button>
                     </form>
-
-                <?php } ?>
-
-            </div>
-            
-            <div class="<col-md-4></col-md-4>"></div>
-
-        </div>
-        
-        <?php include 'footer.php'; ?>
+                    </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                <?php
+                }
+                include 'footer.php'; 
+                ?>
     </div>
 
 </body>

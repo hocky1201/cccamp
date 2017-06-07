@@ -54,7 +54,6 @@
                 <?php
                 if(!isset($_SESSION['auth'])) { ?>
                     <li><a href='allcamp.php'>營隊一覽</a></li>
-
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 會員專區 <span class="caret"></span></a>
                         <ul class="dropdown-menu">

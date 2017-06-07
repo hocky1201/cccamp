@@ -12,37 +12,56 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="container text-center">
+    
         <?php
         include "header.php";
         include "dbconnect.php";
 
 
+        if(!isset($_SESSION['user'])) {
+            header ('Location: loginalert.php');
+        }elseif ($_SESSION['user'] == 'admin') {
+            header ('Location: authalert.php');
+        }else {
+            $u_code = $_SESSION['code'];
+            $result = mysqli_query($link, "select * from `activity` WHERE `act_code` IN (SELECT `act_code` FROM `collect` WHERE `u_code` = $u_code);");
+            
+            ?>
 
-        if ($_SESSION['auth'] == 'user'){
-            $find=$_SESSION['user'];
-            $check = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$find' ; ");
-            $rowF = mysqli_fetch_assoc($check);
-                if(isset($rowF)) 
-                    $u_code= $rowF['u_code'];                    
+            <div class="row clearfix">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">已收藏的活動</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table">
+                            
+                            <?php
+
+                            while($row = mysqli_fetch_assoc($result)){
+                                $act_code = $row['act_code'];
+                                $act_name = $row['act_name'];
+                                echo"<tr>";
+                                echo "<td><a href='campIntro.php?sact_code=$act_code'>$act_name</a></td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                            </table>
+                        </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        <?php
         }
 
-
-        $result=mysqli_query($link,"select * from activity WHERE act_code IN (SELECT act_code FROM collect WHERE u_code=$u_code );");
-
-        while($row=mysqli_fetch_assoc($result)){
-            $act_name=$row["act_name"]; 
-            $act_code= $row['act_code'];  
-
-            echo "<table border=1>";
-            echo"<tr>";        
-            echo "<td>";
-            echo "收藏活動:<a href='campIntro.php?sact_code=$act_code '>$act_name</a><br>";
-            echo "</td>";
-        }
-        echo"<table>";
 
         mysqli_close($link);
 
         ?>
+    
+    </div>
 </body>
 </html>

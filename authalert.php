@@ -22,7 +22,7 @@
                 </div>
                 <div class="panel-body">
                     <p>這不是你該來的地方</p>
-                    <a href='index.php' class='btn btn-default navbar-btn'>我知道了</a>
+                    <a href='index.php' class='btn btn-danger navbar-btn'>我知道了</a>
                 </div>
             </div>
 		</div>
