@@ -7,6 +7,9 @@
     <title>刪除評價</title>
 </head>
 <body>
+    <div class="container">
+    
+    
         <?php include "header.php";
         include "dbconnect.php"; ?>
 
@@ -21,5 +24,7 @@ $result=mysqli_query($link, $sqL2);
 mysqli_close($link);
 header('Location: sucom.php');
 	?>
+    
+    </div>
 </body>
 </html>
