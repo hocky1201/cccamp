@@ -20,7 +20,7 @@
         <div class="jumbotron">
             <h1>CCCamp!</h1>
             <p>這是一個營隊網站</p>
-            <p><a class="btn btn-primary btn-md" href="#" role="button">Learn more &raquo;</a></p>
+            <p><a class="btn btn-primary btn-md" href="allcamp.php" role="button">瞧瞧有甚麼營隊 &raquo;</a></p>
         </div>
         <div class="row">
 

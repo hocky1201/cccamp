@@ -22,11 +22,11 @@
 
         if (!isset($_SESSION['user'])) {
 
-            header ('Location: loginalert.php');
+            echo "<script>document.location.href='loginalert.php'</script>";
 
         }elseif ($_SESSION['auth'] == 'user') {
 
-            header ('Location: authalert.php');
+            echo "<script>document.location.href='authalert.php'</script>";
 
         }else {
 

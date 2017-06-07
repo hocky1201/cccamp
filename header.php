@@ -60,8 +60,6 @@
                             <li><a href="mydata.php">會員資料修改</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="mycollect.php">我的營隊收藏</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href='#'>XXXXXX</a></li>
                         </ul>
                     </li>
 

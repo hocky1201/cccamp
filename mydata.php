@@ -20,7 +20,7 @@
         include "dbconnect.php";
 
         if (!isset($_SESSION['user'])) {
-            header ('Location: loginalert.php');
+            echo "<script>document.location.href='loginalert.php'</script>";
         }else {
             
             $u_code = $_SESSION['code'];

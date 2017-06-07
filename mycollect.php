@@ -20,9 +20,9 @@
 
 
         if(!isset($_SESSION['user'])) {
-            header ('Location: loginalert.php');
+            echo "<script>document.location.href='loginalert.php'</script>";
         }elseif ($_SESSION['user'] == 'admin') {
-            header ('Location: authalert.php');
+            echo "<script>document.location.href='authalert.php'</script>";
         }else {
             $u_code = $_SESSION['code'];
             $result = mysqli_query($link, "select * from `activity` WHERE `act_code` IN (SELECT `act_code` FROM `collect` WHERE `u_code` = $u_code);");
