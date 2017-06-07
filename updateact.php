@@ -86,7 +86,7 @@
 			echo"<table>";		
 
 			mysqli_close($link);
-
+            echo "<script>document.location.reload();'</script>";
 			}else {
 			
 			$act_code=$_GET["sact_code"];

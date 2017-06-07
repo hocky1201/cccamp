@@ -37,7 +37,8 @@
 
                 $sql2 = "INSERT INTO `news` (n_content,n_time,u_code) VALUES ('$n_content','$time','$u_code')";
                 $result = mysqli_query($link, $sql2);
-                header ('Refresh: 0');
+                echo "<script>document.location.reload();'</script>";
+
 
             }else {?>
 
