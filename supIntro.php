@@ -60,7 +60,8 @@
 
 
         $result=mysqli_query($link,"Select comment.c_content,act_name From comment,activity Where comment.act_code = activity.act_code And activity.u_code = $u_code; ");
-        echo "<div class='col-sm-6'";
+       
+        echo "<div class='col-sm-12'>";
         echo "<h2 class='page-header'>對".$act_name."的評價</h2>";
         echo "<table class='table'>";
         echo "<tr><td>營隊</td>";
@@ -87,7 +88,7 @@
             if(!isset($col_code)){ ?>
                 <div class="col-sm-6">
                     <form method="post" action="supIntro.php">
-                        <h4 class="page-header">給與評價</h4>
+                        <h4 class="page-header">給予評價</h4>
                             <div class="input-group">
                                 <span class="input-group-addon">請輸入評價</span>
                                 <textarea class="form-control" name="c_content" rows="5" placeholder="限300字" required></textarea>
@@ -100,7 +101,7 @@
             <?php }else if($col_record="收藏"){ ?>
                 <div class="col-sm-6">
                     <form method="post" action="supIntro.php">
-                    <h4 class="page-header">給與評價</h4>
+                    <h4 class="page-header">給予評價</h4>
                     <div class="input-group">
                         <span class="input-group-addon">請輸入評價</span>
                         <textarea class="form-control" name="c_content" rows="5" placeholder="限300字" required></textarea>
