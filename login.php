@@ -34,8 +34,7 @@
                         $_SESSION['auth'] = $row['u_auth'];
 
                         echo "成功登入為".$_SESSION['user'];
-                        header ('Refresh: 0');
-                        exit();
+                        echo "<script>document.location.href='index.php'</script>";
                         
                     }else {
                         $_POST = array();
