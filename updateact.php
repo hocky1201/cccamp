@@ -122,7 +122,7 @@
 			                <div class="row clearfix">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <form method="POST" action="newcamp.php" enctype="multipart/form-data">
+                        <form method="POST" action="updateact.php" enctype="multipart/form-data">
                             <h2 class="page-header">修改營隊</h2>
 
                             <div class="input-group">
