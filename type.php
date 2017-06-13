@@ -12,28 +12,11 @@
     <?php include "header.php"; ?>
 <?php
  include "dbconnect.php";
-  include "camptype.php";
-//include "timedel.php";
-// $SQLSTR="select filepic,filetype from pic where filename='"
-//          . $_REQUEST["filename"] . "'";
-// //
-//          //while($row=mysqli_fetch_assoc($SQLSTR)){
-// $cur=mysqli_query($link,$SQLSTR);
-// //取出資料
-// $data=mysqli_fetch_array($cur);
 
-// //設定網頁資料格式
-// header("Content-Type: $data[1]");
-// // 輸出圖片資料
+$type_code=$_GET["stype_code"];
+    
 
-
-// echo "<table border=1>";
-// echo"<tr>";
-//         echo "<td>"; echo base64_decode($data[0]); echo "</td>";
-
-//}
-
-$result=mysqli_query($link,"SELECT * FROM activity");
+$result=mysqli_query($link,"SELECT * FROM activity where act_field=$type_code");
 echo "<table border=1>";
 
 while($row=mysqli_fetch_assoc($result)){
@@ -41,8 +24,10 @@ while($row=mysqli_fetch_assoc($result)){
 
    
  echo"<tr>";
-         echo "<td>"; echo "poster"; echo "</td>";     
-echo "<td>";
+        
+            $act_poster=$row["act_poster"];
+            echo"<td><img src='$act_poster' alt='營隊海報' width=250px height=200px></td>";
+            echo "<td>";
 echo "營隊名稱:".$row["act_name"]."<br>";
 $act_name=$row["act_name"];
 $act_code= $row['act_code'];

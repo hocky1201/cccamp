@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,23 +15,15 @@
     <div class="container text-center">
 
         <?php
-
         include "header.php";
         include "dbconnect.php";
-
         if (!isset($_SESSION['user'])) {
-
             echo "<script>document.location.href='loginalert.php'</script>";
-
         }elseif ($_SESSION['auth'] == 'user') {
-
             echo "<script>document.location.href='authalert.php'</script>";
-
         }else {
-
             $u_code = $_SESSION['code'];
             $result = mysqli_query($link, "SELECT * FROM activity where u_code=$u_code;");
-
             while($row=mysqli_fetch_assoc($result)){
             
                 $act_poster=$row["act_poster"];
@@ -44,37 +35,35 @@
             ?>
             <div class="row bg-danger clearfix ">
 
-				<div class="col-sm-4">
-					<img src="<?php echo $row['act_poster'];?>" alt="營隊海報" width=250px height=200px>
-				</div>
+                <div class="col-sm-4">
+                    <img src="<?php echo $row['act_poster'];?>" alt="營隊海報" width=250px height=200px>
+                </div>
 
-				<div class="col-sm-4 text-left">
-					<h4><b><?php echo $row['act_name'];?></b></h4>
-					<p><?php echo $row['act_desc'];?></p>
-					<p>營隊類型 : <?php echo $row["act_field"] ;?></p>
-					<p>招生對象 : <?php echo $row["act_stage1"];echo $row["act_stage2"];echo $row["act_stage3"];echo $row["act_stage4"];echo $row["act_stage5"];echo $row["act_stage6"];echo $row["act_stage7"];echo $row["act_stage8"];?></p>
-					<p>報名時段 : <?php echo $row["act_signup_starttime"] ;?> 至 <?php echo $row["act_signup_endtime"] ;?></p>
-					<p><?php echo "舉辦機關 : ".$row['act_ORG'] ;?></p>
-				</div>
+                <div class="col-sm-4 text-left">
+                    <h4><b><?php echo $row['act_name'];?></b></h4>
+                    <p><?php echo $row['act_desc'];?></p>
+                    <p>營隊類型 : <?php echo $row["act_field"] ;?></p>
+                    <p>招生對象 : <?php echo $row["act_stage1"];echo $row["act_stage2"];echo $row["act_stage3"];echo $row["act_stage4"];echo $row["act_stage5"];echo $row["act_stage6"];echo $row["act_stage7"];echo $row["act_stage8"];?></p>
+                    <p>報名時段 : <?php echo $row["act_signup_starttime"] ;?> 至 <?php echo $row["act_signup_endtime"] ;?></p>
+                    <p><?php echo "舉辦機關 : ".$row['act_ORG'] ;?></p>
+                </div>
 
-				<div class="col-sm-4 text-left">
-					<p>活動時間 : <?php echo $row["act_starttime"] ;?> 至 <?php echo $row["act_endtime"] ;?> </p>
-					<p>活動地點 : <?php echo $row["act_area"] ;?></p>
-					<p>活動費用 : <?php echo $row["act_price"] ;?>元</p>
-					<p>負責人 : <?php echo $row["act_PICname"];?>(<?php echo $row["act_PICphone"]; ?>)</p>
+                <div class="col-sm-4 text-left">
+                    <p>活動時間 : <?php echo $row["act_starttime"] ;?> 至 <?php echo $row["act_endtime"] ;?> </p>
+                    <p>活動地點 : <?php echo $row["act_area"] ;?></p>
+                    <p>活動費用 : <?php echo $row["act_price"] ;?>元</p>
+                    <p>負責人 : <?php echo $row["act_PICname"];?>(<?php echo $row["act_PICphone"]; ?>)</p>
                     <p>活動網址 : <?php echo $row["act_url"] ;?></p>
-					<a href='delact.php?sact_code=<?php echo $act_code;?>'><button class="btn btn-danger">刪除資料</button></a>
-					<a href='updateact.php?sact_code=<?php echo $act_code;?>'><button class="btn btn-info">修改資料</button></a>
+                    <php? echo"<a href='delact.php?sact_code=$act_code'><button class='btn btn-danger'>刪除資料</button></a>";?>
+                    <php? echo"<a href='updateact.php?sact_code=$act_code'><button class='btn btn-info'>修改資料</button></a>";?>
                     
-				</div>
-			
-			</div>
-			<hr>	
+                </div>
+            
+            </div>
+            <hr>    
             <?php
             }
-
         mysqli_close($link);
-
         }
         include 'footer.php';
         ?>
