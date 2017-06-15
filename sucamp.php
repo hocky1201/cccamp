@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +15,8 @@
     
     
         <?php 
-
         include "header.php";
-        include "dbconnect.php"
-
-
+        include "dbconnect.php";
         if ($_SESSION['auth'] == 'su'){
             $find=$_SESSION['user'];
             $check = mysqli_query($link, "SELECT * FROM `user` WHERE `u_id` = '$find' ; ");
@@ -28,12 +24,9 @@
                 if(isset($rowF)) 
                     $u_code= $rowF['u_code'];
         }
-
         echo"<h4>所有營隊</h4>";
         $result=mysqli_query($link,"SELECT * FROM activity ;");
-
         echo "<table border=1>";
-
         while($row=mysqli_fetch_assoc($result)){
         echo"<tr>";
                 
@@ -62,15 +55,8 @@
         echo "<td>";
         echo "<a href='sudelcamp.php?sact_code=$act_code'>刪除資料</a>";
         echo "</td>";
-
-
         }
         echo"<table>";
-
-
-
-
-
         mysqli_close($link);
        ?>
     
