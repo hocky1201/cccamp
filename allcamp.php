@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,19 +14,15 @@
 	<div class="container text-center">
 		
 		<?php 
-
 		include "header.php";
 		include "dbconnect.php";
 		include "camptype.php";
 		
-		$result = mysqli_query($link,"SELECT * FROM activity");
-
-
+		$result = mysqli_query($link,"SELECT * FROM activity WHERE act_endtime > NOW() ORDER BY act_code DESC");
 		while($row = mysqli_fetch_assoc($result)){
 			$act_name=$row["act_name"];
 			$act_code= $row["act_code"];
 			$act_org= $row["act_ORG"];
-
 			?>
 
 			<div class="row bg-info">
@@ -56,9 +51,6 @@
 			</div>
 			<hr>	
 		<?php }
-
-
-
 		mysqli_close($link); 
 		
 		
