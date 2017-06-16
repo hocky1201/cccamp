@@ -27,14 +27,20 @@
             $c_content=$_POST["c_content"];
             $col_record=$_POST["col_record"];
             $act_code=$_POST["act_code"];
+            $col_code=$_POST["col_code"];
         if($_POST["c_content"]!=""){
             $sql3="INSERT INTO comment (act_code, u_code, c_content) VALUES ('$act_code', '$usu_code','$c_content')";
             $result=mysqli_query($link, $sql3);
         }
-        if(isset($_POST["col_record"])){
+        if($_POST["col_record"]=="收藏"){
             $sql4="INSERT INTO collect (act_code, u_code, col_record) 
             VALUES ('$act_code', '$usu_code','$col_record')";
             $result=mysqli_query($link, $sql4);
+        }
+        if($_POST["col_record"]=="不收藏"){
+    
+        $sqL2="DELETE FROM collect  WHERE col_code='$col_code'";
+        $result=mysqli_query($link, $sqL2);
         }
         mysqli_close($link);
         if(isset($_POST['subb'])) {
@@ -77,7 +83,7 @@
                         <h4 class="page-header">給予評價</h4>
                             <div class="input-group">
                                 <span class="input-group-addon">請輸入評價</span>
-                                <textarea class="form-control" name="c_content" rows="5" placeholder="限300字" required></textarea>
+                                <textarea class="form-control" name="c_content" rows="5" placeholder="限300字" ></textarea>
                             </div>
                         <input type="checkbox" name="col_record" vaLue="收藏">收藏營隊
                         <input type="hidden" name="act_code" value="<?php echo $act_code;?>">
@@ -90,7 +96,7 @@
                     <h4 class="page-header">給予評價</h4>
                     <div class="input-group">
                         <span class="input-group-addon">請輸入評價</span>
-                        <textarea class="form-control" name="c_content" rows="5" placeholder="限300字" required></textarea>
+                        <textarea class="form-control" name="c_content" rows="5" placeholder="限300字" ></textarea>
                     </div>
                 <input type="checkbox" name="col_record" vaLue="不收藏">收藏營隊(您已收藏，按下按鈕將取消收藏!!)
                 <input type="hidden" name="act_code" value="<?php echo $act_code;?>">
